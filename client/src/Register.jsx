@@ -1,36 +1,58 @@
-import React from "react";
-import { useState } from "react";
+import axios from "axios";
+import React, { useState } from "react";
 
-function Register(){
+function Register() {
+  const [name, setName] = useState("");
+  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("");
 
-    const [name , setName]=useState("")
-    const [password , setPassword]=useState("")
-    const [email , setEmail]=useState("")
+  async function signUp() {
+    if (name === "") {
+      alert("Name field cannot be empty");
+      return;
+    }
 
-    async function signUp()
-    {
-        let item={name,password,email}  
-        console.warn(item)
+    try {
+      let result = await axios.post("http://localhost:8000/api/register", {
+        name:name,
+        email:email,
+        password:password,
+      });
+      console.log(result);
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
-       let result=await fetch("https://localhst:8000/api/register",{ 
-       method:"POST",
-       body:JSON.stringify(item),
-       headers: {
-        'Content-Type':'application/json',
-        'Accept':'application/json'
-    
-                }
-            })
-   
-   result=await result.json()
-   console.warn("result",result);
+  return (
+    <div>
+      <h1>Register page</h1>
+      <input
+        type="text"
+        value={name}
+        onChange={(e) => setName(e.target.value)}
+        className="form-control"
+      />
+      <br />
+      <input
+        type="email"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+        className="form-control"
+      />
+      <br />
+      <input
+        type="password"
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
+        className="form-control"
+      />
 
-        }
-    return(
-        <div>
-            <h1>Register page</h1>
-            <input type="text" value={name} onChange={(e)=>setName(e.target.value)} className="form-control" />
-        </div>
-    )
+      <button onClick={signUp} className="btn">
+        Sign up
+      </button>
+    </div>
+  );
 }
-export default Register
+
+export default Register;
