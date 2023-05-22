@@ -4,8 +4,9 @@ import { useState } from 'react'
 import './App.css'
 import Header from './Header';
 import Register from './Register';
-import AddProduct from './AddProduct';
+// import AddProduct from './AddProduct';
 import UpdateProduct from './UpdateProduct';
+import Protected from './Protected';
 import Login from './Login';
 import { BrowserRouter ,Route,Routes } from "react-router-dom";
 function App() {
@@ -20,7 +21,8 @@ function App() {
 
         <Route path="/" element={<Login/>}>  </Route>
         <Route path="login" element={<Login/>}>  </Route>
-        <Route path="add" element={<AddProduct/>}>  </Route>
+        <Route path="add" element={<Protected/>}>  </Route>
+        {/* <Route path="add" element={<AddProduct/>}>  </Route> */}
         <Route path="update" element={<UpdateProduct/>}>  </Route>
         <Route path="register" element={<Register/>}>  </Route>
         </Routes>
