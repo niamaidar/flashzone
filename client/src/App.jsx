@@ -7,11 +7,10 @@ function App() {
   const [count, setCount] = useState(0)
 
   return (
-    <>
-      <div className='underline'>
-        Hello World
-      </div>
-    </>
+    <div className='underline'>
+      Hello World
+        
+    </div>
   )
 }
 
