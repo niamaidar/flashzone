@@ -1,4 +1,4 @@
-import { Navbar, Nav } from "react-bootstrap";
+import { Navbar, Nav, NavDropdown } from "react-bootstrap";
 import { Link } from "react-router-dom";
 function Header() {
   return (
@@ -10,6 +10,11 @@ function Header() {
           <Link to="/update">Update Products</Link>
           <Link to="/login">Login</Link>
           <Link to="/register">Register</Link>
+        </Nav>
+        <Nav>
+            <NavDropdown title="User Name">
+                <NavDropdown.Item>Logout</NavDropdown.Item>
+            </NavDropdown>
         </Nav>
       </Navbar>
     </div>
