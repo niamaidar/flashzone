@@ -1,10 +1,13 @@
 import axios from "axios";
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 
 function Register() {
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
+  const navigate = useNavigate();
 
   async function signUp() {
     if (name === "") {
@@ -13,15 +16,20 @@ function Register() {
     }
 
     try {
-      let result = await axios.post("http://localhost:8000/api/register", {
-        name:name,
-        email:email,
-        password:password,
-      });
-      console.log(result);
-    } catch (error) {
-      console.log(error);
-    }
+        let result = await axios.post("http://localhost:8000/api/register", {
+          name: name,
+          email: email,
+          password: password,
+        });
+        console.log(result);
+    
+        // result = await result.json();
+        localStorage.setItem("user-info", JSON.stringify(result.data));
+    
+        navigate('/add'); // Navigate to '/add' route
+      } catch (error) {
+        console.log(error);
+      }
   }
 
   return (
