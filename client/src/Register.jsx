@@ -1,9 +1,14 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 
 function Register() {
+    useEffect(()=>{
+        if (localStorage.getItem('user-info')){
+            navigate('/add') // Navigate to '/add' route
+        }
+    },[])
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
@@ -26,7 +31,7 @@ function Register() {
         // result = await result.json();
         localStorage.setItem("user-info", JSON.stringify(result.data));
     
-        navigate('/add'); // Navigate to '/add' route
+      
       } catch (error) {
         console.log(error);
       }
