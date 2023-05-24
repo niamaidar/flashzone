@@ -29,7 +29,8 @@ function Header() {
         
         {localStorage.getItem('user-info') ?
         <Nav>
-          <NavDropdown title={user.name}>
+          <NavDropdown title={('username')}>
+          {/* <NavDropdown title={user.name}> */}
             <NavDropdown.Item onClick={logOut}>Logout</NavDropdown.Item>
           </NavDropdown>
         </Nav>
