@@ -27,8 +27,6 @@ function Login() {
   }
   return (
     <div>
-      <Header />
-
       <h1>Login page</h1>
       <div className="col-sm-6 offset-sm-3">
         <input

@@ -20,11 +20,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-
+Route::post('addproduct', [ProductController::class, 'addProduct']);
 Route::post('register', [UserController::class, 'register']);
-<<<<<<< HEAD
-
-Route::post('addproduct',[ProductController::class,'addProduct']);
-=======
 Route::post('login', [UserController::class, 'login']);
->>>>>>> f4dfeee8aa4b5ce33e62441e1296e46d5322cd75
