@@ -9,8 +9,14 @@ function Login(){
     },[])
     return(
         <div>
-            <Header/>
             <h1>Login page</h1>
+            <div className='col-sm-6 offset-sm-3'>
+                <input type='text' placeholder='email' className='form-control'/>
+                <br/>
+                <input type='password' placeholder='password' className='form-control'/>
+                <br/>
+                <button className='btn btn-primary'>Login</button>
+            </div>
         </div>
     )
 }
