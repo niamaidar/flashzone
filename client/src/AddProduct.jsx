@@ -67,7 +67,7 @@ function AddProduct() {
         <input
           type="text"
           className="form-control"
-          placeholder="marque"
+          placeholder="brand"
           onChange={(e) => setMarque(e.target.value)}
         />
         <br />
