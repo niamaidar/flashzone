@@ -1,29 +1,24 @@
-import axios from "axios";
-import Header from "./Header";
 import React, { useState } from "react";
 function AddProduct() {
   const [name, setName] = useState("");
-  const [file, setFile] = useState("");
+  const [file_path, setFile] = useState("");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState("");
   async function addProduct() {
-    // console.error(name, file, price, description);
-    // const formData = new FormData();
-    // formData.append("file_path", file);
-    // formData.append("price", price);
-    // formData.append("description", description);
-    // formData.append("name", name);
+    const formData = new FormData();
+    formData.append("file_path", file_path);
+    formData.append("price", price);
+    formData.append("description", description);
+    formData.append("name", name);
     console.log({
       name: name,
-      file: file,
+      file_path: file_path,
       price: price,
       description: description,
     });
-    const response = axios.post("http://localhost:8000/api/addproduct", {
-      name: name,
-      file_path: file,
-      price: price,
-      description: description,
+    const response = await fetch("http://localhost:8000/api/addproduct", {
+      method: 'POST',
+      body: formData,
     });
     console.log(response);
     alert("Data has been saved");
@@ -40,10 +35,10 @@ function AddProduct() {
         />
         <br />
         <input
-          type="text"
+          type="file"
           className="form-control"
           placeholder="file"
-          onChange={(e) => setFile(e.target.value)}
+          onChange={(e) => setFile(e.target.files[0])}
         />
         <br />
         <input
