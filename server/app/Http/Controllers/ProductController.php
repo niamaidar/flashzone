@@ -39,6 +39,7 @@ class ProductController extends Controller
 
         return response()->json(['status' => 'success', 'product' => $product]);
     }
+    
     function list_Product()
     {
         return Product::all();
