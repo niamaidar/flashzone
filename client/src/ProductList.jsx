@@ -22,6 +22,11 @@ function ProductList()
 
   console.warn("results", data);
 
+  function deleteOperation(id)
+  {
+    alert(id);
+  }
+
   return (
     <div>
       <h1>Product list!!</h1>
@@ -38,6 +43,7 @@ function ProductList()
               <th>Quantity</th>
               <th>Category</th>
               <th>Image</th>
+              <th>Operations</th>
             </tr>
           </thead>
           <tbody>
@@ -54,6 +60,7 @@ function ProductList()
                   <td>
                   <img style={{ width: 100 }} src={`http://localhost:8000/${item.file_path}`} alt="Product" />
                   </td>
+                  <td><span><button onClick={()=>deleteOperation(item.id)} className="delete">Delete </button></span></td>
                 </tr>
               ))
             ) : (
