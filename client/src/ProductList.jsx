@@ -34,6 +34,7 @@ function ProductList()
               <th>Name</th>
               <th>Description</th>
               <th>Price</th>
+              <th>Marque</th>
               <th>Quantity</th>
               <th>Category</th>
               <th>Image</th>
@@ -47,6 +48,7 @@ function ProductList()
                   <td>{item.name}</td>
                   <td>{item.description}</td>
                   <td>{item.price}</td>
+                  <td>{item.marque}</td>
                   <td>{item.quantity}</td>
                   <td>{item.category}</td>
                   <td>
