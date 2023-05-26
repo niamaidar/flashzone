@@ -58,4 +58,5 @@ class ProductController extends Controller
     {
         return Product::find($id);
     }
+    function get(){}
 }
