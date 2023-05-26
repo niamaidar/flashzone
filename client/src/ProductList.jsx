@@ -3,7 +3,8 @@ import Header from "./Header";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-function ProductList() {
+function ProductList()
+ {
   const [data, setData] = useState([]);
 
   useEffect(() => {
@@ -63,6 +64,6 @@ function ProductList() {
       </div>
     </div>
   );
-}
+            }
 
 export default ProductList;

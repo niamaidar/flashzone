@@ -9,7 +9,6 @@ import UpdateProduct from "./UpdateProduct";
 import Protected from "./Protected";
 import Login from "./Login";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { Switch } from 'react-router-dom';
 import ProductList from './ProductList';
 function App() {
   const [count, setCount] = useState(0);
