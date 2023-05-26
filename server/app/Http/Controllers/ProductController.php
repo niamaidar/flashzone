@@ -14,6 +14,9 @@ class ProductController extends Controller
             'file_path' => 'required|file',
             'description' => 'required',
             'price' => 'required|numeric',
+            'category'=> 'required',
+            'quantity' => 'required|numeric',
+            'marque'=> 'required',
         ]);
 
         $file = $req->file('file_path');
@@ -29,8 +32,15 @@ class ProductController extends Controller
             'file_path' => $filePath,
             'description' => $req->description,
             'price' => $req->price,
+            'marque'=>$req->marque,
+            'quantity'=>$req->quantity,
+            'category'=>$req->category,
         ]);
 
         return response()->json(['status' => 'success', 'product' => $product]);
+    }
+    function list_Product()
+    {
+        return Product::all();
     }
 }

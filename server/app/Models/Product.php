@@ -13,5 +13,8 @@ class Product extends Model
         'file_path',
         'description',
         'price',
+        'marque',
+        'quantity',
+        'category',
     ];
 }

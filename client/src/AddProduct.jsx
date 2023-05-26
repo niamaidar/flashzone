@@ -4,17 +4,26 @@ function AddProduct() {
   const [file_path, setFile] = useState("");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState("");
+  const [quantity,setQuantity] = useState("");
+  const [marque,setMarque] = useState("");
+  const [category,setCategory] = useState("");
   async function addProduct() {
     const formData = new FormData();
     formData.append("file_path", file_path);
     formData.append("price", price);
     formData.append("description", description);
     formData.append("name", name);
+    formData.append("marque",marque);
+    formData.append("quantity",quantity);
+    formData.append("category",category);
     console.log({
       name: name,
       file_path: file_path,
       price: price,
       description: description,
+      marque:marque,
+      quantity:quantity,
+      category:category,
     });
     const response = await fetch("http://localhost:8000/api/addproduct", {
       method: 'POST',
@@ -53,6 +62,27 @@ function AddProduct() {
           className="form-control"
           placeholder="price"
           onChange={(e) => setPrice(e.target.value)}
+        />
+        <br />
+        <input
+          type="text"
+          className="form-control"
+          placeholder="marque"
+          onChange={(e) => setMarque(e.target.value)}
+        />
+        <br />
+        <input
+          type="text"
+          className="form-control"
+          placeholder="quantity"
+          onChange={(e) => setQuantity(e.target.value)}
+        />
+        <br />
+        <input
+          type="text"
+          className="form-control"
+          placeholder="category"
+          onChange={(e) => setCategory(e.target.value)}
         />
         <br />
         <button onClick={addProduct} className="btn btn-primary">

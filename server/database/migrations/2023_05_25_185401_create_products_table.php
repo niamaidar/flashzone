@@ -17,6 +17,9 @@ return new class extends Migration
             $table->string('file_path');
             $table->string('description');
             $table->double('price');
+            $table->string('marque');
+            $table->integer('quantity');
+            $table->string('category');
             $table->timestamps();
         });
     }
