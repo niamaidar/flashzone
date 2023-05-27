@@ -69,7 +69,6 @@ function ProductList()
               </tr>
             )}
           </tbody>
-        
         </Table>
       </div>
     </div>
