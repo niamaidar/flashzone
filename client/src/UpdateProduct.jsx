@@ -8,7 +8,7 @@ function UpdateProduct() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        let result = await fetch(`http://localhost:8000/api/product/${id}`);
+        let result = await fetch(`http://localhost:8000/api/getProduct/${id}`);
         result = await result.json();
         setData(result);
       } catch (error) {
@@ -18,6 +18,32 @@ function UpdateProduct() {
 
     fetchData();
   }, [id]);
+  async function updateProduct() {
+    const formData = new FormData();
+    formData.append("file_path", file_path);
+    formData.append("price", price);
+    formData.append("description", description);
+    formData.append("name", name);
+    formData.append("marque",marque);
+    formData.append("quantity",quantity);
+    formData.append("category",category);
+    console.log({
+      name: name,
+      file_path: file_path,
+      price: price,
+      description: description,
+      marque:marque,
+      quantity:quantity,
+      category:category,
+    });
+    const response = await fetch(`http://localhost:8000/api/updateProduct/${id}`,{
+      method: 'POST',
+      body: formData,
+    });
+    navigate("/list");
+    console.log(response);
+    alert("Data has been saved");
+  }
 
   return (
     <div>
@@ -27,13 +53,13 @@ function UpdateProduct() {
             <fieldset>
                 <input type='text' defaultValue={data.name} className="form-control" placeholder='name'/> <br/> <br/>
                 <input type='text' defaultValue={data.price} className="form-control" placeholder='price'/> <br/> <br/>
-                <input type='file' defaultValue={data.file_path} className="form-control" placeholder='file patj'/> <br/> <br/>
+                <input type='file' defaultValue={data.file_path} className="form-control" placeholder='file path'/> <br/> <br/>
                 <img style={{width:100}} src={"http//:localhost:8000/"+data.file_path} /> <br/> <br/>
                 <input type='text' defaultValue={data.description} className="form-control" placeholder='description'/> <br/> <br/>
                 <input type='text' defaultValue={data.marque} className="form-control" placeholder='marque'/> <br/> <br/>
                 <input type='text' defaultValue={data.quantity} className="form-control" placeholder='quantity'/> <br/> <br/>
                 <input type='text' defaultValue={data.category} className="form-control" placeholder='category'/> <br/> <br/>
-                <button className="btn btn-primary">Update product</button>
+                <button onClick={updateProduct} className="btn btn-primary">Update product</button>
             </fieldset>
             </form>
         </div>
@@ -42,53 +68,3 @@ function UpdateProduct() {
 }
 
 export default UpdateProduct;
-
-{/* <input
-          type="text"
-          className="form-control"
-          placeholder="name"
-          onChange={(e) => setName(e.target.value)}
-        />
-        <br />
-        <input
-          type="file"
-          className="form-control"
-          placeholder="file"
-          onChange={(e) => setFile(e.target.files[0])}
-        />
-        <br />
-        <input
-          type="text"
-          className="form-control"
-          placeholder="description"
-          onChange={(e) => setDescription(e.target.value)}
-        />
-        <br />
-        <input
-          type="text"
-          className="form-control"
-          placeholder="price"
-          onChange={(e) => setPrice(e.target.value)}
-        />
-        <br />
-        <input
-          type="text"
-          className="form-control"
-          placeholder="brand"
-          onChange={(e) => setMarque(e.target.value)}
-        />
-        <br />
-        <input
-          type="text"
-          className="form-control"
-          placeholder="quantity"
-          onChange={(e) => setQuantity(e.target.value)}
-        />
-        <br />
-        <input
-          type="text"
-          className="form-control"
-          placeholder="category"
-          onChange={(e) => setCategory(e.target.value)}
-        />
-        <br /> */}

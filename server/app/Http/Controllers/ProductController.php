@@ -39,7 +39,7 @@ class ProductController extends Controller
 
         return response()->json(['status' => 'success', 'product' => $product]);
     }
-    
+
     function list_Product()
     {
         return Product::all();
@@ -59,6 +59,35 @@ class ProductController extends Controller
     {
         return Product::find($id);
     }
+    public function updateProduct(Request $req, $id)
+    {
+        $req->validate([
+            'name' => 'required',
+            'description' => 'required',
+            'price' => 'required|numeric',
+            'category' => 'required',
+            'quantity' => 'required|numeric',
+            'marque' => 'required',
+        ]);
+
+        $product = Product::find($id);
+
+        if (!$product) {
+            return response()->json(['error' => 'Product not found.'], 404);
+        }
+
+        $product->name = $req->name;
+        $product->description = $req->description;
+        $product->price = $req->price;
+        $product->marque = $req->marque;
+        $product->quantity = $req->quantity;
+        $product->category = $req->category;
+
+        $product->save();
+
+        return response()->json(['status' => 'success', 'product' => $product]);
+    }
+
     function search($key)
     {
         return Product::where('name','like',"%$key%")->get();
