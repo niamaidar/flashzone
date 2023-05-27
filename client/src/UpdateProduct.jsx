@@ -25,14 +25,14 @@ function UpdateProduct() {
         <div className="col-sm-6 offset-sm-3">
             <form>
             <fieldset>
-                <input type='text' defaultValue={data.name} className="form-control"/> <br/> <br/>
-                <input type='text' defaultValue={data.price} className="form-control"/> <br/> <br/>
-                <input type='file' defaultValue={data.file_path} className="form-control"/> <br/> <br/>
-                <img style={{width:100}} src={"http//:localhost:8000/"+data.file_path}/> <br/> <br/>
-                <input type='text' defaultValue={data.description} className="form-control"/> <br/> <br/>
-                <input type='text' defaultValue={data.marque} className="form-control"/> <br/> <br/>
-                <input type='text' defaultValue={data.quantity} className="form-control"/> <br/> <br/>
-                <input type='text' defaultValue={data.category} className="form-control"/> <br/> <br/>
+                <input type='text' defaultValue={data.name} className="form-control" placeholder='name'/> <br/> <br/>
+                <input type='text' defaultValue={data.price} className="form-control" placeholder='price'/> <br/> <br/>
+                <input type='file' defaultValue={data.file_path} className="form-control" placeholder='file patj'/> <br/> <br/>
+                <img style={{width:100}} src={"http//:localhost:8000/"+data.file_path} /> <br/> <br/>
+                <input type='text' defaultValue={data.description} className="form-control" placeholder='description'/> <br/> <br/>
+                <input type='text' defaultValue={data.marque} className="form-control" placeholder='marque'/> <br/> <br/>
+                <input type='text' defaultValue={data.quantity} className="form-control" placeholder='quantity'/> <br/> <br/>
+                <input type='text' defaultValue={data.category} className="form-control" placeholder='category'/> <br/> <br/>
                 <button className="btn btn-primary">Update product</button>
             </fieldset>
             </form>

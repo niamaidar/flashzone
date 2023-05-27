@@ -2,6 +2,7 @@ import { Table } from "react-bootstrap";
 import Header from "./Header";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 function ProductList()
  {
@@ -41,6 +42,8 @@ async function getData()
   
   }
 
+
+
   return (
     <div>
       <h1>Product list!!</h1>
@@ -57,7 +60,7 @@ async function getData()
               <th>Quantity</th>
               <th>Category</th>
               <th>Image</th>
-              <th>Operations</th>
+              <th colSpan={2}>Operations</th>
             </tr>
           </thead>
           <tbody>
@@ -75,6 +78,11 @@ async function getData()
                   <img style={{ width: 100 }} src={`http://localhost:8000/${item.file_path}`} alt="Product" />
                   </td>
                   <td><span><button onClick={()=>deleteOperation(item.id)} className="btn btn-danger">Delete </button></span></td>
+                  <td>
+                  <Link to={"/update/"+item.id}>
+                  <span><button  className="btn btn-primary">Update </button></span>
+                  </Link>
+                  </td>
                 </tr>
               ))
             ) : (
