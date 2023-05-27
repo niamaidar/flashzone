@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 function AddProduct() {
   const [name, setName] = useState("");
   const [file_path, setFile] = useState("");
@@ -7,6 +8,7 @@ function AddProduct() {
   const [quantity,setQuantity] = useState("");
   const [marque,setMarque] = useState("");
   const [category,setCategory] = useState("");
+  const navigate = useNavigate();
   async function addProduct() {
     const formData = new FormData();
     formData.append("file_path", file_path);
@@ -29,6 +31,7 @@ function AddProduct() {
       method: 'POST',
       body: formData,
     });
+    navigate("/list");
     console.log(response);
     alert("Data has been saved");
   }
