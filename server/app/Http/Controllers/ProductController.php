@@ -60,33 +60,37 @@ class ProductController extends Controller
         return Product::find($id);
     }
     public function updateProduct(Request $req, $id)
-    {
-        $req->validate([
-            'name' => 'required',
-            'description' => 'required',
-            'price' => 'required|numeric',
-            'category' => 'required',
-            'quantity' => 'required|numeric',
-            'marque' => 'required',
-        ]);
+{
+    $req->validate([
+        'name' => 'required',
+        'description' => 'required',
+        'price' => 'required|numeric',
+        'category' => 'required',
+        'quantity' => 'required|numeric',
+        'marque' => 'required',
+    ]);
 
-        $product = Product::find($id);
+    $updatedData = [
+        'name' => $req->name,
+        'description' => $req->description,
+        'price' => $req->price,
+        'marque' => $req->marque,
+        'quantity' => $req->quantity,
+        'category' => $req->category,
+    ];
 
-        if (!$product) {
-            return response()->json(['error' => 'Product not found.'], 404);
-        }
+    $product = Product::find($id);
 
-        $product->name = $req->name;
-        $product->description = $req->description;
-        $product->price = $req->price;
-        $product->marque = $req->marque;
-        $product->quantity = $req->quantity;
-        $product->category = $req->category;
-
-        $product->save();
-
-        return response()->json(['status' => 'success', 'product' => $product]);
+    if (!$product) {
+        return response()->json(['error' => 'Product not found.'], 404);
     }
+
+    $product->update($updatedData);
+
+    return response()->json(['status' => 'success', 'product' => $product]);
+}
+
+
 
     function search($key)
     {
