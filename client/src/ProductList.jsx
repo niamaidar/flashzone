@@ -18,13 +18,27 @@ function ProductList()
     }
 
     fetchData();
-  }, []);
+  }, getData());
 
   console.warn("results", data);
 
-  function deleteOperation(id)
+  async function deleteOperation(id)
   {
-    alert(id);
+    let result=await fetch("http://localhost:8000/api/delete/"+id,{
+       method:"DELETE",
+
+  });
+    result=await result. json();
+    console.warn(result)
+                           I
+    getData();
+  }
+async function getData()
+{
+     let result = await fetch("http://localhost:8000/api/list_Product");
+     result =await result.json();
+    setData(result)
+  
   }
 
   return (
