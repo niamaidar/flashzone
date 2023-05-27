@@ -10,6 +10,7 @@ import Protected from "./Protected";
 import Login from "./Login";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import ProductList from './ProductList';
+import SearchProduct from './SearchProduct';
 function App() {
   const [count, setCount] = useState(0);
 
@@ -27,6 +28,7 @@ function App() {
           <Route path="add" element={<Protected Cmp={AddProduct} />} />
           <Route path="/list" element={<Protected Cmp={ProductList} />} />
           <Route path="update" element={<Protected Cmp={UpdateProduct} />} />
+          <Route path="/search" element={<Protected Cmp={SearchProduct} />} />
           <Route path="register" element={<Register />}>  
           </Route>
         </Routes>

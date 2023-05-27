@@ -60,7 +60,7 @@ function ProductList()
                   <td>
                   <img style={{ width: 100 }} src={`http://localhost:8000/${item.file_path}`} alt="Product" />
                   </td>
-                  <td><span><button onClick={()=>deleteOperation(item.id)} className="delete">Delete </button></span></td>
+                  <td><span><button onClick={()=>deleteOperation(item.id)} className="btn btn-danger">Delete </button></span></td>
                 </tr>
               ))
             ) : (
