@@ -58,5 +58,8 @@ class ProductController extends Controller
     {
         return Product::find($id);
     }
-    function get(){}
+    function search($key)
+    {
+        return Product::where('name','like',"%$key%")->get();
+    }
 }
