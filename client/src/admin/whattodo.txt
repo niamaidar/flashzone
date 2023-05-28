@@ -17,3 +17,13 @@
 3. page ProductByCategory switch to user 
 4. add page commande in user 
 5.afficher les client on admin page 
+
+
+!!!!!!: installer hado :
+npm install @fortawesome/free-brands-svg-icons
+npm install @fortawesome/fontawesome-free @fortawesome/react-fontawesome
+npm install @fortawesome/fontawesome-free @fortawesome/react-fontawesome
+npm install @fortawesome/fontawesome-free
+
+
+

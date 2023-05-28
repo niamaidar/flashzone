@@ -21,10 +21,9 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<Login />}>
-            
-          </Route>
-          {/* <Route path="login" element={<Login />}></Route> */}
           <Route path="/user" element={<Userlist />}/>
+          </Route>
+          <Route path="login" element={<Login />}></Route>
           <Route path="add" element={<Protected Cmp={AddProduct} />} />
           <Route path="/list" element={<Protected Cmp={ProductList} />} />
           <Route path="/update/:id" element={<Protected Cmp={UpdateProduct} />} />
