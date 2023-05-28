@@ -91,6 +91,7 @@ async function getData()
             )}
           </tbody>
         </Table>
+        <button className="btn btn-info"><Link style={{color:"white",textDecoration:"none"}} to="/add">Add new Product </Link></button>
       </div>
     </div>
   );

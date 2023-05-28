@@ -59,10 +59,6 @@ class ProductController extends Controller
     {
         return Product::find($id);
     }
-    function search($key)
-    {
-        return Product::where('name','like',"%$key%")->get();
-    }
     public function updateProduct(Request $req, $id)
     {
         $req->validate([
@@ -100,5 +96,19 @@ class ProductController extends Controller
 
             return response()->json(['status' => 'success', 'product' => $product]);
     }
+    function search($key)
+    {
+        return Product::where('name','like',"%$key%")->get();
+    }
+    function categories()
+    {
+        return Product::select('category')->distinct()->get();
+    }
+    function categoryBycat($category)
+    {
+        $result=Product::where('category',"=",$category)->get();
+        return $result;
+    }
+
 
 }
