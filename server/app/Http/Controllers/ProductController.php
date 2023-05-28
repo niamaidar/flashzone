@@ -63,4 +63,42 @@ class ProductController extends Controller
     {
         return Product::where('name','like',"%$key%")->get();
     }
+    public function updateProduct(Request $req, $id)
+{
+    $req->validate([
+        'name' => 'required',
+        'description' => 'required',
+        'price' => 'required|numeric',
+        'category' => 'required',
+        'quantity' => 'required|numeric',
+        'marque' => 'required',
+    ]);
+
+    $product = Product::find($id);
+
+    if (!$product) {
+        return response()->json(['error' => 'Product not found.'], 404);
+    }
+
+    // Update the product properties
+    $product->name = $req->name;
+    $product->description = $req->description;
+    $product->price = $req->price;
+    $product->category = $req->category;
+    $product->quantity = $req->quantity;
+    $product->marque = $req->marque;
+
+    $file = $req->file('file_path');
+
+    if ($file) {
+        $filePath = $file->store('products');
+        $product->file_path = $filePath;
+    }
+
+    // Save the updated product
+    $product->save();
+
+    return response()->json(['status' => 'success', 'product' => $product]);
+}
+
 }
