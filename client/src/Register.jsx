@@ -4,15 +4,15 @@ import { useNavigate } from "react-router-dom";
 
 
 function Register() {
+  const [name, setName] = useState("");
+  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("");
+  const navigate = useNavigate();
     useEffect(()=>{
         if (localStorage.getItem('user-info')){
             navigate('/add') // Navigate to '/add' route
         }
     },[])
-  const [name, setName] = useState("");
-  const [password, setPassword] = useState("");
-  const [email, setEmail] = useState("");
-  const navigate = useNavigate();
 
   async function signUp() {
     if (name === "") {
@@ -27,7 +27,7 @@ function Register() {
           password: password,
         });
         console.log(result);
-    
+        navigate('./list')
         // result = await result.json();
         localStorage.setItem("user-info", JSON.stringify(result.data));
     
