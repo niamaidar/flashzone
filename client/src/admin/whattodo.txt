@@ -4,3 +4,12 @@
 3.fetch all the products from the admin page to user page and display them 
 4.add a commande button for the user
 5.remove the select button from register and make 2 admins, others are users
+
+6.add two buttons for the category add and modify and delete
+7. fetch the data by category and add them in the category desired
+8. display the data on the user page and make them select or unselect the product
+9. add to the cart and calculate the total price of the product
+10. add a status bar to the top and display the number of product in the cart and total price of the cart
+11. add a alert or css style for out of stock products once the quantity is 0
+
+12.add a command for the user to add a product to the cart and remove it from the cart

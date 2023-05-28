@@ -21,7 +21,7 @@ class UserController extends Controller
             "name"=>$req->name,
             "email"=>$req->email,
             "password"=>Hash::make($req->password),
-            'is_admin' => true, // Set the user as admin
+            'is_admin' => false, // Set the user as admin
 
         ]);
         return response()->json([
