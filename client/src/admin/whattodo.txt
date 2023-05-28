@@ -1,3 +1,1 @@
-1.add navigate mn register l add
-2.fix image in product list
-3.once added in add product navigate to product list
+1.add a password once it is an admin /??

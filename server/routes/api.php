@@ -22,9 +22,14 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::post('register', [UserController::class, 'register']);
 Route::post('login', [UserController::class, 'login']);
-Route::post('addproduct', [ProductController::class, 'addProduct']);
+//accessible for all
 Route::get('list_Product', [ProductController::class, 'list_Product']);
-Route::delete('delete/{id}', [ProductController::class, 'delete']);
-Route::get('getProduct/{id}', [ProductController::class, 'getProduct']);
-Route::get('search/{id}', [ProductController::class, 'search']);
-Route::post('/updateProduct/{id}', [ProductController::class, 'updateProduct']);
+Route::get('userlist', [ProductController::class, 'userlist']);
+
+Route::middleware(['auth:sanctum', 'admin'])->group(function () {
+    Route::post('addproduct', [ProductController::class, 'addProduct']);
+    Route::delete('delete/{id}', [ProductController::class, 'delete']);
+    Route::get('getProduct/{id}', [ProductController::class, 'getProduct']);
+    Route::get('search/{id}', [ProductController::class, 'search']);
+    Route::post('/updateProduct/{id}', [ProductController::class, 'updateProduct']);
+});

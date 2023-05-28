@@ -20,12 +20,16 @@ class UserController extends Controller
         $user = User::create([
             "name"=>$req->name,
             "email"=>$req->email,
-            "password"=>Hash::make($req->password)
+            "password"=>Hash::make($req->password),
+            'is_admin' => true, // Set the user as admin
+
         ]);
         return response()->json([
             'status'=>'success',
-            'user'=>$user
+            'user'=>$user,
+            'message_admin'=>'user registered successfully'
         ]);
+        
 
     }
     function login(Request $req)
@@ -37,4 +41,5 @@ class UserController extends Controller
         }
         return $user;
     }
+    
 }
