@@ -1,6 +1,4 @@
 import { useState } from "react";
-// import reactLogo from './assets/react.svg'
-// import viteLogo from '/vite.svg'
 import "./App.css";
 import Header from "./admin/Header";
 import Register from "./admin/Register";
@@ -11,7 +9,8 @@ import Login from "./admin/Login";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import ProductList from './admin/ProductList';
 import SearchProduct from './admin/SearchProduct';
-import Category from './admin/Category'
+import Category from './admin/Category';
+import ProductByCategory from './admin/ProductByCategory';
 function App() {
   const [count, setCount] = useState(0);
 
@@ -31,6 +30,7 @@ function App() {
           <Route path="/update/:id" element={<Protected Cmp={UpdateProduct} />} />
           <Route path="/search" element={<Protected Cmp={SearchProduct} />} />
           <Route path="/category" element={<Protected Cmp={Category} />} />
+          <Route path="/ProductByCat" element={<Protected Cmp={ProductByCategory} />} />
           <Route path="register" element={<Register />}>  
           </Route>
         </Routes>

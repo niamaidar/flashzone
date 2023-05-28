@@ -3,7 +3,7 @@ import { Card } from "react-bootstrap";
 import img1 from '../images/cam1.jpg';
 import img2 from '../images/cam2.jpg';
 import img3 from '../images/access1.jpg';
-
+import { Link } from "react-router-dom";
 import './category.css';
 function Category() {
   return (
@@ -11,11 +11,11 @@ function Category() {
       <div className="row">
         <div className="col-md-4">
           <Card>
-            <a href=""><Card.Img
+          <Link to={"/ProductByCat"}><Card.Img
               variant="top"
               src={img1}
               alt="Image 1"
-            /></a>
+            /></Link>
             <Card.Body>
               <Card.Title>Cameras</Card.Title>
               <Card.Text>Cameras are devices used to capture and record visual images. They have become an integral part of our lives, playing a crucial role in various fields such as photography, videography, surveillance, and more.
@@ -28,11 +28,11 @@ function Category() {
         </div>
         <div className="col-md-4">
           <Card>
-            <a href=""><Card.Img
+          <Link to={"/ProductByCat"}><Card.Img
               variant="top"
               src={img2}
               alt="Image 2"
-            /></a>
+            /></Link>
             <Card.Body>
               <Card.Title>Videos</Card.Title>
               <Card.Text>Video cameras have become more accessible than ever, with many smartphones equipped with high-quality video recording capabilities. This has democratized video creation and opened up new avenues for content creation and storytelling.
@@ -45,11 +45,11 @@ function Category() {
         </div>
         <div className="col-md-4">
           <Card>
-           <a href=""> <Card.Img
+          <Link to={"/ProductByCat"}> <Card.Img
               variant="top"
               src={img3}
               alt="Image 3"
-            /></a>
+            /></Link>
             <Card.Body>
               <Card.Title>Accessories</Card.Title>
               <Card.Text>Camera accessories are essential tools that enhance the functionality and creative potential of cameras.
