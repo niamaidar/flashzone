@@ -13,3 +13,7 @@
 11. add a alert or css style for out of stock products once the quantity is 0
 
 12.add a command for the user to add a product to the cart and remove it from the cart
+2.add Crud in page Category 
+3. page ProductByCategory switch to user 
+4. add page commande in user 
+5.afficher les client on admin page 
