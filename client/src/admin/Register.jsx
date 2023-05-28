@@ -104,7 +104,7 @@ function Register() {
       if (role === "admin") {
         navigate("/list");
       } else {
-        navigate("../user/userlist");
+        navigate("/user");
       }
 
       localStorage.setItem("user-info", JSON.stringify(result.data));

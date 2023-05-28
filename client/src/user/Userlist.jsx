@@ -1,9 +1,10 @@
 import React from 'react'
 
-export default function Userlist() {
+function Userlist() {
   return (
-    <div>Userlist
+    <div>
     <h1>User page</h1>
     </div>
   )
 }
+export default Userlist;

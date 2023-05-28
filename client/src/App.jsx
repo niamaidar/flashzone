@@ -11,6 +11,7 @@ import ProductList from './admin/ProductList';
 import SearchProduct from './admin/SearchProduct';
 import Category from './admin/Category';
 import ProductByCategory from './admin/ProductByCategory';
+import Userlist from './user/Userlist';
 function App() {
   const [count, setCount] = useState(0);
 
@@ -22,9 +23,8 @@ function App() {
           <Route path="/" element={<Login />}>
             
           </Route>
-          <Route path="login" element={<Login />}>
-            
-          </Route>
+          {/* <Route path="login" element={<Login />}></Route> */}
+          <Route path="/user" element={<Userlist />}/>
           <Route path="add" element={<Protected Cmp={AddProduct} />} />
           <Route path="/list" element={<Protected Cmp={ProductList} />} />
           <Route path="/update/:id" element={<Protected Cmp={UpdateProduct} />} />
