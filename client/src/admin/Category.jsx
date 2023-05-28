@@ -27,7 +27,7 @@ function Category() {
     <div>
     <div className="card-container">
       <Link to="/add"><img src={img4} style={{width:"50px"}} alt='add category'/></Link>
-      <p>Add new category</p>
+      <p>Add a new product in a category</p>
       <br/>
       <div className="row">
         <div className="col-md-4">

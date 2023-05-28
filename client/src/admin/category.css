@@ -21,10 +21,12 @@
   .card-title {
     font-size: 18px;
     font-weight: bold;
+    color: black;
   }
   
   .card-text {
     font-size: 14px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: black;
   }
   

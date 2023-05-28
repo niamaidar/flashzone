@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faGooglePlus, faTwitter, faFacebookF  } from "@fortawesome/free-brands-svg-icons";
+import { faGooglePlus, faTwitter, faFacebookF } from "@fortawesome/free-brands-svg-icons";
 
 import Header from "./Header";
 import './login.css';
+
 function Login() {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
@@ -30,7 +31,7 @@ function Login() {
 
     result = await result.json();
     localStorage.setItem("user-info", JSON.stringify(result));
-    navigate("/add");
+    navigate("/list");
   }
 
   return (
@@ -50,27 +51,28 @@ function Login() {
           onChange={(e) => setPassword(e.target.value)}
           placeholder="Password"
         />
-        <div class="row">
-						<p>Don't have an account? <a href="/Register">Register Here</a></p>
-					</div>
-        <input type="submit" onClick={login} name="" value="Login" />
+        <div className="row">
+          <p>
+            Don't have an account? <a href="/Register">Register Here</a>
+          </p>
+        </div>
+        <button type="button" onClick={login}>Login</button>
         <div className="col-md-12">
           <ul className="social-network social-circle">
             <li>
-            <a href="#" className="icoFacebook" title="Facebook">
-              <FontAwesomeIcon icon={faFacebookF} />
-          </a>
+              <a href="#" className="icoFacebook" title="Facebook">
+                <FontAwesomeIcon icon={faFacebookF} />
+              </a>
             </li>
             <li>
-            <a href="#" className="icoTwitter" title="Twitter">
-              <FontAwesomeIcon icon={faTwitter} />
-          </a>
+              <a href="#" className="icoTwitter" title="Twitter">
+                <FontAwesomeIcon icon={faTwitter} />
+              </a>
             </li>
             <li>
-            <a href="#" className="icoGoogle" title="Google +">
-            <FontAwesomeIcon icon={faGooglePlus} />
-          </a>
-
+              <a href="#" className="icoGoogle" title="Google +">
+                <FontAwesomeIcon icon={faGooglePlus} />
+              </a>
             </li>
           </ul>
         </div>

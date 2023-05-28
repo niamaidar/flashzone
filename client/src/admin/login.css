@@ -55,7 +55,7 @@ body {
     border-color: #cc2ebc
 }
 
-.box input[type="submit"] {
+button[type="button"] {
     border: 0;
     background: none;
     display: block;
@@ -70,7 +70,7 @@ body {
     cursor: pointer
 }
 
-.box input[type="submit"]:hover {
+button[type="button"]:hover {
     background: rgb(114, 200, 247)
 }
 

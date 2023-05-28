@@ -1,8 +1,7 @@
-import { Table } from "react-bootstrap";
 import React, { useEffect, useState } from "react";
+import { Table } from "react-bootstrap";
 import axios from "axios";
-import { useParams } from "react-router-dom";
-import { Link } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import './style.css';
 
 function ProductByCategory() {
@@ -34,55 +33,55 @@ function ProductByCategory() {
 
   return (
     <div>
-      <h1 className="text-center">List of Products</h1>
-      <div>
-        <Table>
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>Name</th>
-              <th>Description</th>
-              <th>Price</th>
-              <th>Marque</th>
-              <th>Quantity</th>
-              <th>Image</th>
-              <th>Delete_Product</th>
-              <th>Update_Product</th>
-            </tr>
-          </thead>
-          <tbody>
-            {data.length > 0 ? (
-              data.map((item) => (
-                <tr key={item.id}>
-                  <td>{item.id}</td>
-                  <td>{item.name}</td>
-                  <td>{item.description}</td>
-                  <td>{item.price}</td>
-                  <td>{item.marque}</td>
-                  <td>{item.quantity}</td>
-                  <td>
-                    <img style={{ width: 100 }} src={`http://localhost:8000/${item.file_path}`} alt="Product" />
-                  </td>
-                  <td>
-                    <span>
-                      <button onClick={() => deleteOperation(item.id)} className="btn btn-danger">Delete</button>
-                    </span>
-                  </td>
-                  <td>
-                  <Link to={"/update/"+item.id}>
-                  <span><button  className="btn btn-primary">Update </button></span>
-                  </Link>
-                  </td>
+      {data.length > 0 ? (
+        <>
+          <h1 className="text-center">List of {data[0].category}</h1>
+          <div>
+            <Table>
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Name</th>
+                  <th>Description</th>
+                  <th>Price</th>
+                  <th>Marque</th>
+                  <th>Quantity</th>
+                  <th>Image</th>
+                  <th>Delete_Product</th>
+                  <th>Update_Product</th>
                 </tr>
-              ))
-            ) : (
-              <tr>
-                <td colSpan="8">Loading...</td>
-              </tr>
-            )}
-          </tbody>
-        </Table>
-      </div>
+              </thead>
+              <tbody>
+                {data.map((item) => (
+                  <tr key={item.id}>
+                    <td>{item.id}</td>
+                    <td>{item.name}</td>
+                    <td>{item.description}</td>
+                    <td>{item.price}</td>
+                    <td>{item.marque}</td>
+                    <td>{item.quantity}</td>
+                    <td>
+                      <img style={{ width: 100 }} src={`http://localhost:8000/${item.file_path}`} alt="Product" />
+                    </td>
+                    <td>
+                      <span>
+                        <button onClick={() => deleteOperation(item.id)} className="btn btn-danger">Delete</button>
+                      </span>
+                    </td>
+                    <td>
+                      <Link to={`/update/${item.id}`}>
+                        <button className="btn btn-primary">Update</button>
+                      </Link>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </Table>
+          </div>
+        </>
+      ) : (
+        <div>Loading...</div>
+      )}
     </div>
   );
 }
