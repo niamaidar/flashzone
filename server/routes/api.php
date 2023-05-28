@@ -40,4 +40,4 @@ Route::get('getProduct/{id}', [ProductController::class, 'getProduct']);
 Route::post('/updateProduct/{id}', [ProductController::class, 'updateProduct']);
 Route::get('search/{id}', [ProductController::class, 'search']);
 Route::get('categories', [ProductController::class, 'categories']);
-Route::get('categoryBycat/{id}', [ProductController::class, 'categoryBycat']);
+Route::get('categoryBycat/{category}', [ProductController::class, 'categoryBycat']);
