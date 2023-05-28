@@ -2,15 +2,15 @@ import { useState } from "react";
 // import reactLogo from './assets/react.svg'
 // import viteLogo from '/vite.svg'
 import "./App.css";
-import Header from "./Header";
-import Register from "./Register";
-import AddProduct from "./AddProduct";
-import UpdateProduct from "./UpdateProduct";
-import Protected from "./Protected";
-import Login from "./Login";
+import Header from "./admin/Header";
+import Register from "./admin/Register";
+import AddProduct from "./admin/AddProduct";
+import UpdateProduct from "./admin/UpdateProduct";
+import Protected from "./admin/Protected";
+import Login from "./admin/Login";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import ProductList from './ProductList';
-import SearchProduct from './SearchProduct';
+import ProductList from './admin/ProductList';
+import SearchProduct from './admin/SearchProduct';
 function App() {
   const [count, setCount] = useState(0);
 

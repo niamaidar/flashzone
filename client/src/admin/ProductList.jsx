@@ -3,7 +3,7 @@ import Header from "./Header";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-
+import './style.css'
 function ProductList()
  {
   const [data, setData] = useState([]);
@@ -46,8 +46,7 @@ async function getData()
 
   return (
     <div>
-      <h1>Product list!!</h1>
-      <p>This is a list of products..</p>
+      <h1 className="text-center">Product list</h1>
       <div>
         <Table>
           <thead>
