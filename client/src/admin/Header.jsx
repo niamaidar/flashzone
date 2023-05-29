@@ -1,5 +1,15 @@
 import { Navbar, Nav, NavDropdown } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
+import {
+  MDBNavbar,
+  MDBContainer,
+  MDBIcon,
+  MDBNavbarNav,
+  MDBNavbarItem,
+  MDBNavbarLink,
+  MDBBadge,
+  MDBBtn
+} from 'mdb-react-ui-kit';
 
 function Header() {
   let user = JSON.parse(localStorage.getItem('user-info'))
@@ -41,7 +51,29 @@ function Header() {
         }
         
       </Navbar>
-    </div>
+
+
+
+{/* 
+    <MDBNavbar expand='lg' light bgColor='light'>
+      <MDBContainer fluid>
+        <MDBNavbarNav>
+          <MDBNavbarItem>
+            <MDBNavbarLink href='#'>
+              <MDBBadge pill color='danger'>!</MDBBadge>
+              <span>
+                <MDBIcon fas icon='shopping-cart'></MDBIcon>
+              </span>
+            </MDBNavbarLink>
+            <form className='d-flex input-group w-auto'>
+            <input type='search' className='form-control' placeholder='Type query' aria-label='Search' />
+            <MDBBtn color='primary'>Search</MDBBtn>
+          </form>
+          </MDBNavbarItem>
+        </MDBNavbarNav>
+      </MDBContainer>
+    </MDBNavbar> */}
+  </div>
   );
 }
 export default Header;

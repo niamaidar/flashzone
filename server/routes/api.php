@@ -29,6 +29,11 @@ Route::get('list_Product', [ProductController::class, 'list_Product']);
 
 Route::get('userlist', [ProductController::class, 'userlist']);
 Route::get('/clients', [ClientController::class, 'index']);
+Route::post('/clients', [ClientController::class, 'store']);
+Route::delete('/clients/{id}', [ClientController::class, 'destroy']);
+Route::put('/clients/{id}', [ClientController::class, 'update']);
+Route::get('/clients/{id}', [ClientController::class, 'show']);
+
 
 Route::middleware(['auth:sanctum', 'admin'])->group(function () {
     Route::post('addproduct', [ProductController::class, 'addProduct']);

@@ -1,70 +1,10 @@
-// import React, { useEffect, useState } from "react";
-// import axios from "axios";
-// import "./../App.css"; 	
-// function ClientList() {
-//   const [clients, setClients] = useState([]);
-
-//   useEffect(() => {
-//     fetchClients();
-//   }, []);
-
-//   const fetchClients = async () => {
-//     try {
-//       const response = await axios.get("http://localhost:8000/api/clients");
-//       console.log('response:' , response.data);
-//       const filteredClients = response.data.filter(
-//         (client) => client.user.is_admin === 0
-//       );
-//       setClients(filteredClients);
-//       console.warn(filteredClients);
-//     } catch (error) {
-//       console.log(error);
-//     }
-//   };
-//   const removeClient = async (id) => {
-//     try {
-//       await axios.delete(`http://localhost:8000/api/clients/${id}`);
-//       fetchClients(); // Refresh the client list
-//     } catch (error) {
-//       console.log(error);
-//     }
-//   };
-
-//   return (
-//     <div className="container">
-//       <h1>Clients</h1>
-//       <br/>
-//       <div className="card-deck">
-//       <div className="row ">
-      
-//         {clients.map((client) => (
-//           <div className="col-md-4 card-header " key={client.id}>  
-//             <div className="card mb-3 card border-primary mb-3">
-//                 <div className="card-body">
-//                 <h5 className="card-title">{client.user.name}</h5>
-//                 <p className="card-text">First Name: {client.first_name}</p>
-//                 <p className="card-text">Last Name: {client.last_name}</p>
-//                 <p className="card-text">City: {client.city}</p>
-//                 <p className="card-text">Address: {client.address}</p>
-//                 <p className="card-text">Telephone: {client.telephone}</p>
-//                                   <button className="btn btn-danger" onClick={() => removeClient(client.id)}>Remove</button>
-
-//               </div>
-//             </div>
-//           </div>
-//         ))}
-//       </div>
-//       </div>
-//     </div>
-//   );
-// }
-
-// export default ClientList;
 import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import axios from "axios";
 
-function ClientList() {
-  const [clients, setClients] = useState([]);
+function ClientDetails() {
+  const { id } = useParams();
+  const [client, setClient] = useState(null);
   const [selectedClient, setSelectedClient] = useState(null);
   const [editModalOpen, setEditModalOpen] = useState(false);
   const [firstName, setFirstName] = useState("");
@@ -73,9 +13,11 @@ function ClientList() {
   const [address, setAddress] = useState("");
   const [telephone, setTelephone] = useState("");
 
+
   useEffect(() => {
-    fetchClients();
+    fetchClientDetails();
   }, []);
+
 
   const fetchClients = async () => {
     try {
@@ -91,46 +33,92 @@ function ClientList() {
     }
   };
 
+  const fetchClientDetails = async () => {
+    try {
+      const response = await axios.get(
+        `http://localhost:8000/api/clients/${id}`
+      );
+      setClient(response.data);
+    } catch (error) {
+      console.log("where the error is : ", error);
+    }
+  };
 
- 
-  const removeClient = async (id) => {
-        try {
-          await axios.delete(`http://localhost:8000/api/clients/${id}`);
-          fetchClients(); // Refresh the client list
-        } catch (error) {
-          console.log(error);
+  if (!client) {
+    return <div>Loading...</div>;
+  }
+  
+  const openEditModal = (client) => {
+    setSelectedClient(client);
+    setFirstName(client.first_name);
+    setLastName(client.last_name);
+    setCity(client.city);
+    setAddress(client.address);
+    setTelephone(client.telephone);
+    setEditModalOpen(true);
+  };
+
+  const closeEditModal = () => {
+    setSelectedClient(null);
+    setFirstName("");
+    setLastName("");
+    setCity("");
+    setAddress("");
+    setTelephone("");
+    setEditModalOpen(false);
+  };
+
+  const updateClient = async () => {
+    try {
+      const response = await axios.put(
+        `http://localhost:8000/api/clients/${selectedClient.id}`,
+        {
+          first_name: firstName,
+          last_name: lastName,
+          city: city,
+          address: address,
+          telephone: telephone,
         }
-      };
-    
+      );
+      console.log(response.data);
+      closeEditModal();
+      fetchClients();
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   return (
     <div className="container">
-      <h1>Clients</h1>
-      <br />
-      <div className="card-deck">
-        <div className="row">
-          {clients.map((client) => (
-            <div className="col-md-4 card-header" key={client.id}>
-              <div className="card mb-3 card border-primary mb-3">
-                <div className="card-body">
-                  <h5 className="card-title">{client.user.name}</h5>
-                  <p className="card-text">First Name: {client.first_name}</p>
-                  <p className="card-text">Last Name: {client.last_name}</p>
-                  <p className="card-text">City: {client.city}</p>
-                  <p className="card-text">Address: {client.address}</p>
-                  <p className="card-text">Telephone: {client.telephone}</p>
-                  
-                 <button className="btn btn-danger" onClick={() => removeClient(client.id)}>Remove</button>
-
-                </div>
-              </div>
-            </div>
-          ))}
+      <h1 className="my-4">Client Details</h1>
+      <div className="card mb-4">
+        <div className="card-body">
+          <h5 className="card-title">{client.user}</h5>
+          <p className="card-text">
+            <strong>First Name:</strong> {client.first_name}
+          </p>
+          <p className="card-text">
+            <strong>Last Name:</strong> {client.last_name}
+          </p>
+          <p className="card-text">
+            <strong>City:</strong> {client.city}
+          </p>
+          <p className="card-text">
+            <strong>Address:</strong> {client.address}
+          </p>
+          <p className="card-text">
+            <strong>Telephone:</strong> {client.telephone}
+          </p>
+          <button
+            className="btn btn-primary mr-2"
+            onClick={() => openEditModal(client)}
+          >
+            Edit
+          </button>
         </div>
       </div>
-
-      {/* Edit Modal */}
-      {selectedClient && (
+         {/* Edit Modal */}
+         {selectedClient && (
         <div className={`modal ${editModalOpen ? "d-block" : "d-none"}`}>
           <div className="modal-dialog">
             <div className="modal-content">
@@ -217,4 +205,4 @@ function ClientList() {
   );
 }
 
-export default ClientList;
+export default ClientDetails;

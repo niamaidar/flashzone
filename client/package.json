@@ -16,7 +16,11 @@
     "animate.css": "^4.1.1",
     "axios": "^1.4.0",
     "bootstrap": "^5.2.3",
+<<<<<<< HEAD
     "format-currency": "^1.0.0",
+=======
+    "mdb-react-ui-kit": "^6.1.0",
+>>>>>>> fc4acd220420bd5a9ef14541301f7841b3e4231c
     "react": "^18.2.0",
     "react-bootstrap": "^2.7.4",
     "react-dom": "^18.2.0",
