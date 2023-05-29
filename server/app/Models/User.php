@@ -47,4 +47,8 @@ class User extends Authenticatable
     {
         return $this->is_admin;
     }
+    public function clients()
+    {
+        return $this->hasMany(Client::class);
+    }
 }

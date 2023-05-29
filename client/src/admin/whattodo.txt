@@ -1,5 +1,7 @@
 1.add a password once it is an admin /??
 
+///// !! verify the admin/user 0=1
+
 2.remove login from user page
 3.fetch all the products from the admin page to user page and display them 
 4.add a commande button for the user

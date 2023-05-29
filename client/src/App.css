@@ -1,3 +1,7 @@
 .navbar_wrapper a{
     padding-left: 30%;
 }
+
+.card-header {
+    margin-right: 3rem;
+}
