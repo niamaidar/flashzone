@@ -13,6 +13,9 @@ import Category from './admin/Category';
 import ProductByCategory from './admin/ProductByCategory';
 import Userlist from './user/Userlist';
 import ClientList from "./user/Clientlist";
+import ClientForm from "./user/ClientForm";
+import ClientDetails from "./user/ClientDetails";
+
 
 
 function App() {
@@ -50,6 +53,9 @@ function App() {
           <Route path="/category" element={<Protected Cmp={Category} />} />
           <Route path="/ProductByCat/:category" element={<Protected Cmp={ProductByCategory} />} />
           <Route path="register" element={<Register />} />
+          <Route path="register/addclient" element={<ClientForm />} />
+          <Route path="/clients/:id" element={<ClientDetails />} />
+
         </Routes>
 
       </BrowserRouter>
