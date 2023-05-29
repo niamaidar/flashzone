@@ -13,6 +13,7 @@ import Category from './admin/Category';
 import ProductByCategory from './admin/ProductByCategory';
 import Userlist from './user/Userlist';
 import ClientList from "./user/Clientlist";
+import HomeScreen from "./user/screens/HomeScreen";
 
 
 function App() {
@@ -41,6 +42,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Login />} />
           <Route path="/user" element={<Userlist />} />
+          <Route path="/Home" element={<HomeScreen />} />
           <Route path="/clientlist" element={<ClientList />} />
           <Route path="login" element={<Login />} />
           <Route path="add" element={<Protected Cmp={AddProduct} />} />
