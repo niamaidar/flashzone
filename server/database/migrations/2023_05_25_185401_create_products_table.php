@@ -20,8 +20,6 @@ return new class extends Migration
             $table->string('brand');
             $table->integer('quantity');
             $table->string('category');
-            $table->double('rating');
-            $table->integer('numReviews');
             $table->timestamps();
         });
     }

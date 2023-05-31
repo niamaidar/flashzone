@@ -35,6 +35,8 @@ class ProductController extends Controller
             'marque'=>$req->marque,
             'quantity'=>$req->quantity,
             'category'=>$req->category,
+            'rating'=>$req->null,
+            'numReviews'=>$req->null,
         ]);
 
         return response()->json(['status' => 'success', 'product' => $product]);
