@@ -33,6 +33,8 @@ Route::post('/clients', [ClientController::class, 'store']);
 Route::delete('/clients/{id}', [ClientController::class, 'destroy']);
 Route::put('/clients/{id}', [ClientController::class, 'update']);
 Route::get('/clients/{id}', [ClientController::class, 'show']);
+Route::post('/products', 'ProductController@store');
+Route::get('/products/{id}', 'ProductController@show');
 
 
 Route::middleware(['auth:sanctum', 'admin'])->group(function () {
@@ -49,6 +51,7 @@ Route::post('/updateProduct/{id}', [ProductController::class, 'updateProduct']);
 Route::get('search/{id}', [ProductController::class, 'search']);
 Route::get('categories', [ProductController::class, 'categories']);
 Route::get('categoryBycat/{category}', [ProductController::class, 'categoryBycat']);
+
 
 Route::get('/images/{filename}', function ($filename) {
     $path = storage_path('app/products/' . $filename);

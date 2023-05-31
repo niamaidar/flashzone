@@ -110,5 +110,36 @@ class ProductController extends Controller
         return $result;
     }
 
+    public function store(Request $request)
+    {
+        // Validate the request data
+        $validatedData = $request->validate([
+            'file_path' => 'required',
+            'price' => 'required|numeric',
+            'description' => 'required',
+            'name' => 'required',
+            'marque' => 'required',
+            'quantity' => 'required|numeric',
+            'category' => 'required',
+        ]);
+
+        // Create the product
+        $product = Product::create($validatedData);
+
+        return response()->json($product, 201);
+    }
+
+    public function show($id)
+    {
+        // Find the product by ID
+        $product = Product::find($id);
+
+        if (!$product) {
+            return response()->json(['message' => 'Product not found'], 404);
+        }
+
+        return response()->json($product, 200);
+    }
+
 
 }
