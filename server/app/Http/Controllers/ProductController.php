@@ -16,7 +16,7 @@ class ProductController extends Controller
             'price' => 'required|numeric',
             'category'=> 'required',
             'quantity' => 'required|numeric',
-            'marque'=> 'required',
+            'brand'=> 'required',
         ]);
 
         $file = $req->file('file_path');
@@ -32,7 +32,7 @@ class ProductController extends Controller
             'file_path' => $filePath,
             'description' => $req->description,
             'price' => $req->price,
-            'marque'=>$req->marque,
+            'brand'=>$req->brand,
             'quantity'=>$req->quantity,
             'category'=>$req->category,
         ]);
@@ -67,7 +67,7 @@ class ProductController extends Controller
             'price' => 'required|numeric',
             'category' => 'required',
             'quantity' => 'required|numeric',
-            'marque' => 'required',
+            'brand' => 'required',
         ]);
 
         $product = Product::find($id);
@@ -82,7 +82,7 @@ class ProductController extends Controller
             $product->price = $req->price;
             $product->category = $req->category;
             $product->quantity = $req->quantity;
-            $product->marque = $req->marque;
+            $product->brand = $req->brand;
 
             $file = $req->file('file_path');
 
