@@ -24,6 +24,7 @@
 !!!!!!: installer hado : npm i uuid
  diri migrate : php artisan migrate:refresh
  ( rah zdte champ rating o rateReview)
+ DAMNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
  
 
 
