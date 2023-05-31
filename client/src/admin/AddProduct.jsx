@@ -8,7 +8,7 @@ function AddProduct() {
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState("");
   const [quantity,setQuantity] = useState("");
-  const [marque,setMarque] = useState("");
+  const [brand,setBrand] = useState("");
   const [category,setCategory] = useState("");
   const navigate = useNavigate();
   async function addProduct() {
@@ -17,18 +17,16 @@ function AddProduct() {
     formData.append("price", price);
     formData.append("description", description);
     formData.append("name", name);
-    formData.append("marque",marque);
+    formData.append("brand",brand);
     formData.append("quantity",quantity);
     formData.append("category",category);
-    formData.append("rating",null);
-    formData.append("numReviews",null);
 
     console.log({
       name: name,
       file_path: file_path,
       price: price,
       description: description,
-      marque:marque,
+      brand:brand,
       quantity:quantity,
       category:category,
     });
@@ -77,7 +75,7 @@ function AddProduct() {
           type="text"
           className="form-control"
           placeholder="brand"
-          onChange={(e) => setMarque(e.target.value)}
+          onChange={(e) => setBrand(e.target.value)}
         />
         <br />
         <input
