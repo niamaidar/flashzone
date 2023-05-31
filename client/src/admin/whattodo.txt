@@ -21,11 +21,10 @@
 5.afficher les client on admin page 
 
 
-!!!!!!: installer hado :
-npm install @fortawesome/free-brands-svg-icons
-npm install @fortawesome/fontawesome-free @fortawesome/react-fontawesome
-npm install @fortawesome/fontawesome-free @fortawesome/react-fontawesome
-npm install @fortawesome/fontawesome-free
+!!!!!!: installer hado : npm i uuid
+ diri migrate : php artisan migrate:refresh
+ ( rah zdte champ rating o rateReview)
+ 
 
 
 
