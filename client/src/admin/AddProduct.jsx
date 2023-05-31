@@ -20,6 +20,9 @@ function AddProduct() {
     formData.append("marque",marque);
     formData.append("quantity",quantity);
     formData.append("category",category);
+    formData.append("rating",null);
+    formData.append("numReviews",null);
+
     console.log({
       name: name,
       file_path: file_path,
