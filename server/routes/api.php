@@ -3,7 +3,7 @@
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProductController;
-
+use Illuminate\Support\Facades\Response;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -49,3 +49,13 @@ Route::post('/updateProduct/{id}', [ProductController::class, 'updateProduct']);
 Route::get('search/{id}', [ProductController::class, 'search']);
 Route::get('categories', [ProductController::class, 'categories']);
 Route::get('categoryBycat/{category}', [ProductController::class, 'categoryBycat']);
+
+Route::get('/images/{filename}', function ($filename) {
+    $path = storage_path('app/products/' . $filename);
+
+    if (file_exists($path)) {
+        return Response::file($path);
+    }
+
+    return response()->json(['error' => 'Image not found'], 404);
+});

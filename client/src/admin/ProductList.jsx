@@ -46,6 +46,7 @@ async function getData()
 
   return (
     <div>
+      <Header />
       <h1 className="text-center">Product list</h1>
       <div>
         <Table>
@@ -74,7 +75,7 @@ async function getData()
                   <td>{item.quantity}</td>
                   <td>{item.category}</td>
                   <td>
-                  <img style={{ width: 100 }} src={`http://localhost:8000/${item.file_path}`} alt="Product" />
+                  <img style={{ width: 100 }} src={`http://localhost:8000/api/images/${item.file_path}`} alt="Product" />
                   </td>
                   <td><span><button onClick={()=>deleteOperation(item.id)} className="btn btn-danger">Delete </button></span></td>
                   <td>

@@ -3,8 +3,8 @@
 @tailwind utilities; */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:w400');
 *{
-    padding: 0;
-    margin: 0;
+    padding: 1;
+    margin: 1;
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
 }

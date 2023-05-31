@@ -1,6 +1,5 @@
 import { useState } from "react";
 import "./App.css";
-import Header from "./admin/Header";
 import Register from "./admin/Register";
 import AddProduct from "./admin/AddProduct";
 import UpdateProduct from "./admin/UpdateProduct";
@@ -13,13 +12,10 @@ import Category from './admin/Category';
 import ProductByCategory from './admin/ProductByCategory';
 import Userlist from './user/Userlist';
 import ClientList from "./user/Clientlist";
-<<<<<<< HEAD
 import HomeScreen from "./user/screens/HomeScreen";
-=======
 import ClientForm from "./user/ClientForm";
 import ClientDetails from "./user/ClientDetails";
 
->>>>>>> fc4acd220420bd5a9ef14541301f7841b3e4231c
 
 
 function App() {
@@ -28,10 +24,10 @@ function App() {
   return (
     <div>
       <BrowserRouter>
-        <Header />
         {/* <Routes>
           <Route path="/" element={<Login />}>
           <Route path="/user" element={<Userlist />}/>
+          <Route path="/Home" element={<HomeScreen />} />
           <Route path="clientlist" element={<ClientList />} />
           </Route>
           <Route path="login" element={<Login />}>

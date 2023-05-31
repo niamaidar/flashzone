@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import Nav from "../Components/Nav";
 import ProductCard from "../Components/ProductCard";
 
 function HomeScreen() {
@@ -21,7 +22,8 @@ function HomeScreen() {
 
   console.warn("results", data);
 
-  return (
+  return (<>
+    <Nav/>
     <div className="products_wrapper">
       {data.length > 0 ? (
         data.map((item) => (
@@ -31,6 +33,7 @@ function HomeScreen() {
         <p>Out of stock</p>
       )}
     </div>
+    </>
   );
 }
 

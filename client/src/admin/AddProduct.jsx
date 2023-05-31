@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Header from "./Header";
+
 function AddProduct() {
   const [name, setName] = useState("");
   const [file_path, setFile] = useState("");
@@ -37,6 +39,7 @@ function AddProduct() {
   }
   return (
     <div>
+      <Header />
       <div className="col-sm-6 offset-sm-3">
         <br />
         <input

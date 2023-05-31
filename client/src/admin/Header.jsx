@@ -1,15 +1,15 @@
 import { Navbar, Nav, NavDropdown } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
-import {
-  MDBNavbar,
-  MDBContainer,
-  MDBIcon,
-  MDBNavbarNav,
-  MDBNavbarItem,
-  MDBNavbarLink,
-  MDBBadge,
-  MDBBtn
-} from 'mdb-react-ui-kit';
+// import {
+//   MDBNavbar,
+//   MDBContainer,
+//   MDBIcon,
+//   MDBNavbarNav,
+//   MDBNavbarItem,
+//   MDBNavbarLink,
+//   MDBBadge,
+//   MDBBtn
+// } from 'mdb-react-ui-kit';
 
 function Header() {
   let user = JSON.parse(localStorage.getItem('user-info'))

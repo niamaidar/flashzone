@@ -17,9 +17,11 @@ return new class extends Migration
             $table->string('file_path');
             $table->string('description');
             $table->double('price');
-            $table->string('marque');
+            $table->string('brand');
             $table->integer('quantity');
             $table->string('category');
+            $table->double('rating');
+            $table->integer('numReviews');
             $table->timestamps();
         });
     }

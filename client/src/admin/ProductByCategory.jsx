@@ -3,6 +3,8 @@ import { Table } from "react-bootstrap";
 import axios from "axios";
 import { useParams, Link } from "react-router-dom";
 import './style.css';
+import Header from "./Header";
+
 
 function ProductByCategory() {
   const { category } = useParams();
@@ -33,6 +35,7 @@ function ProductByCategory() {
 
   return (
     <div>
+      <Header />
       {data.length > 0 ? (
         <>
           <h1 className="text-center">List of {data[0].category}</h1>
