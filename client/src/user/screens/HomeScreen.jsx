@@ -6,10 +6,14 @@ import ProductCard from "../Components/ProductCard";
 
 function HomeScreen() {
   const [data, setData] = useState([]);
-
+  
   useEffect(() => {
     fetchData();
   }, []);
+  let str = "products/KYDsCfjFfChZxrkX3x20AslI60z5WgdMvdJXY9zE.jpg";
+  console.log(str.trim("products/"));
+  console.warn("results", data);
+
 
   async function fetchData() {
     try {
