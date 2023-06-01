@@ -15,8 +15,7 @@ import ClientList from "./user/Clientlist";
 import HomeScreen from "./user/screens/HomeScreen";
 import ClientForm from "./user/ClientForm";
 import ClientDetails from "./user/ClientDetails";
-
-
+import Navbar from "./user/Components/Navbar";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -56,6 +55,8 @@ function App() {
           <Route path="register" element={<Register />} />
           <Route path="register/addclient" element={<ClientForm />} />
           <Route path="/clients/:id" element={<ClientDetails />} />
+          <Route path="/Navbar" element={<Navbar />} />
+
 
         </Routes>
 

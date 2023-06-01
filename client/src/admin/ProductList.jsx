@@ -3,46 +3,45 @@ import Header from "./Header";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import './style.css'
-function ProductList()
- {
+import "./style.css";
+function ProductList() {
   const [data, setData] = useState([]);
 
   useEffect(() => {
     async function fetchData() {
       try {
-        const response = await axios.get("http://localhost:8000/api/list_Product");
+        const response = await axios.get(
+          "http://localhost:8000/api/list_Product"
+        );
         setData(response.data);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
     }
-
+    getData();
     fetchData();
-  }, getData());
-
+  }, []);
+  function removeProductPrefix(imageString) {
+    return imageString.replace("products/", "");
+  }
+  let str = "products/KYDsCfjFfChZxrkX3x20AslI60z5WgdMvdJXY9zE.jpg";
+  console.log(str.trim("products/"));
   console.warn("results", data);
 
-  async function deleteOperation(id)
-  {
-    let result=await fetch("http://localhost:8000/api/delete/"+id,{
-       method:"DELETE",
-
-  });
-    result=await result. json();
-    console.warn(result)
-                           I
+  async function deleteOperation(id) {
+    let result = await fetch("http://localhost:8000/api/delete/" + id, {
+      method: "DELETE",
+    });
+    result = await result.json();
+    console.warn(result);
+    I;
     getData();
   }
-async function getData()
-{
-     let result = await fetch("http://localhost:8000/api/list_Product");
-     result =await result.json();
-    setData(result)
-  
+  async function getData() {
+    let result = await fetch("http://localhost:8000/api/list_Product");
+    result = await result.json();
+    setData(result);
   }
-
-
 
   return (
     <div>
@@ -56,7 +55,7 @@ async function getData()
               <th>Name</th>
               <th>Description</th>
               <th>Price</th>
-              <th>Marque</th>
+              <th>Brand</th>
               <th>Quantity</th>
               <th>Category</th>
               <th>Image</th>
@@ -75,13 +74,30 @@ async function getData()
                   <td>{item.quantity}</td>
                   <td>{item.category}</td>
                   <td>
-                  <img style={{ width: 100 }} src={`http://localhost:8000/api/images/${item.file_path}`} alt="Product" />
+                    <img
+                      style={{ width: 100 }}
+                      src={`http://localhost:8000/api/images/${removeProductPrefix(
+                        item.file_path
+                      )}`}
+                      alt="Product"
+                    />
                   </td>
-                  <td><span><button onClick={()=>deleteOperation(item.id)} className="btn btn-danger">Delete </button></span></td>
                   <td>
-                  <Link to={"/update/"+item.id}>
-                  <span><button  className="btn btn-primary">Update </button></span>
-                  </Link>
+                    <span>
+                      <button
+                        onClick={() => deleteOperation(item.id)}
+                        className="btn btn-danger"
+                      >
+                        Delete{" "}
+                      </button>
+                    </span>
+                  </td>
+                  <td>
+                    <Link to={"/update/" + item.id}>
+                      <span>
+                        <button className="btn btn-primary">Update </button>
+                      </span>
+                    </Link>
                   </td>
                 </tr>
               ))
@@ -92,10 +108,14 @@ async function getData()
             )}
           </tbody>
         </Table>
-        <button className="btn btn-info"><Link style={{color:"white",textDecoration:"none"}} to="/add">Add new Product </Link></button>
+        <button className="btn btn-info">
+          <Link style={{ color: "white", textDecoration: "none" }} to="/add">
+            Add new Product{" "}
+          </Link>
+        </button>
       </div>
     </div>
   );
-            }
+}
 
 export default ProductList;
