@@ -16,6 +16,9 @@ import HomeScreen from "./user/screens/HomeScreen";
 import ClientForm from "./user/ClientForm";
 import ClientDetails from "./user/ClientDetails";
 import Command from "./user/Command";
+import Cart from "./user/Cart";
+
+
 
 
 
@@ -48,6 +51,7 @@ function App() {
           <Route path="/user" element={<Userlist />} />
           <Route path="/Home" element={<HomeScreen />} />
           <Route path="/clientlist" element={<ClientList />} />
+          {/* <Route path="/clientdetails" element={<ClientDetails />} /> */}
           <Route path="login" element={<Login />} />
           <Route path="add" element={<Protected Cmp={AddProduct} />} />
           <Route path="/list" element={<Protected Cmp={ProductList} />} />
@@ -57,8 +61,8 @@ function App() {
           <Route path="/ProductByCat/:category" element={<Protected Cmp={ProductByCategory} />} />
           <Route path="register" element={<Register />} />
           <Route path="register/addclient" element={<ClientForm />} />
-          <Route path="/clients/:id" element={<ClientDetails />} />
-          <Route path="/command" component={Command } />
+          {/* <Route path="/command" component={Command} /> */}
+          <Route path="/command/:id" element={<Command />} />
 
         </Routes>
 
