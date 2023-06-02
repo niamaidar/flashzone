@@ -12,17 +12,10 @@ import Category from './admin/Category';
 import ProductByCategory from './admin/ProductByCategory';
 import Userlist from './user/Userlist';
 import ClientList from "./user/Clientlist";
-import HomeScreen from "./user/screens/HomeScreen";
+import HomeScreen from "./user/screens/HomeScreen"
 import ClientForm from "./user/ClientForm";
 import ClientDetails from "./user/ClientDetails";
-<<<<<<< HEAD
-import Navbar from "./user/Components/Navbar";
-=======
-import Command from "./user/Command";
-
-
-
->>>>>>> 90c73e45df4c4ed69bb8a9f49e3743c48fd36872
+import Nav from "./user/Components/nav/Nav";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -62,12 +55,8 @@ function App() {
           <Route path="register" element={<Register />} />
           <Route path="register/addclient" element={<ClientForm />} />
           <Route path="/clients/:id" element={<ClientDetails />} />
-<<<<<<< HEAD
-          <Route path="/Navbar" element={<Navbar />} />
+          <Route path="/Nav" element={<Nav/>} />
 
-=======
-          <Route path="/command" component={Command } />
->>>>>>> 90c73e45df4c4ed69bb8a9f49e3743c48fd36872
 
         </Routes>
 

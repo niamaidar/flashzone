@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Box } from "../Components/nav/Box"
 import ProductCard from "../Components/ProductCard"
 
@@ -28,7 +28,7 @@ function HomeScreen() {
 
   return (<>
     <Box css={{px: "$12", mt: "$8", "@xsMax": {px: "$10"}}}>
-    <div className="products_wrapper flex flex-row flex-wrap w-full ">
+    <div className="products_wrapper flex flex-row w-full ">
       {data.length > 0 ? (
         data.map((item) => (
           <ProductCard key={item.id} item={item} />
