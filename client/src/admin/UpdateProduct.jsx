@@ -70,7 +70,6 @@ function UpdateProduct(props) {
 
   return (
     <div>
-      <Header />
       <h2 className='text-center'>Update Product</h2>
       <div className="col-sm-6 offset-sm-3">
         <form onSubmit={handleUpdate}>
