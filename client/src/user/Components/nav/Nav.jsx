@@ -5,19 +5,28 @@ import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import { Layout } from "./Layout";
 import { FlashZone } from "./FlashZone";
 import { SearchIcon } from "./SearchIcon";
-import { Link } from "react-router-dom";
-
-
+import { Link, useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 export default function Nav() {
+  const navigate = useNavigate();
+  const [searchTerm, setSearchTerm] = useState("");
+
+  const handleSearchSubmit = (event) => {
+    event.preventDefault();
+    // Perform search logic here
+    // Use the searchTerm variable to access the entered value
+    navigate(`/search?term=${searchTerm}`);
+  };
+
+  const handleSearchChange = (event) => {
+    setSearchTerm(event.target.value);
+  };
   return (
     <Layout>
       <Navbar isBordered variant="sticky">
         <Navbar.Brand css={{ mr: "$4" }}>
           <FlashZone />
-          <Text b color="inherit" css={{ mr: "$11" }} hideIn="xs">
-          FlashZone
-          </Text>
           <Navbar.Content hideIn="xs" variant="highlight">
             <Navbar.Link isActive href="#">
               Home
@@ -40,8 +49,8 @@ export default function Nav() {
                 jc: "center",
               },
             }}
-          >
-            <Input
+          ><form onSubmit={handleSearchSubmit}>
+             <Input
               clearable
               contentLeft={
                 <SearchIcon fill="var(--nextui-colors-accents6)" size={16} />
@@ -59,7 +68,11 @@ export default function Nav() {
                 },
               }}
               placeholder="Search..."
+              value={searchTerm}
+              onChange={handleSearchChange}
+              
             />
+            </form>
           </Navbar.Item>
           <Navbar.Link href="#"><FontAwesomeIcon style={{
                   width: '30px',
@@ -91,7 +104,7 @@ export default function Nav() {
           >
             <Dropdown.Item key="profile" css={{ height: "$18" }}>
               <Text b color="inherit" css={{ d: "flex" }}>
-                <Link to="register/addclient" style={{textDecoration:"none",color:"black"}}>My Profile</Link></Text>
+                <Link to="/clients/2" style={{textDecoration:"none",color:"black"}}>My Profile</Link></Text>
             </Dropdown.Item>
               <Dropdown.Item key="logout" withDivider color="error">
                 <Link to="/register" style={{textDecoration:"none",color:"red"}}>Log Out</Link>

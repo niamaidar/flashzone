@@ -9,7 +9,7 @@ function SearchProduct() {
 
   async function search(key) {
     console.warn(key);
-    let result = await fetch("http://localhost:8000/api/search/" + key);
+    let result = await fetch("http://localhost:8000/api/search/"+key);
     result = await result.json();
     setData(result);
   }
@@ -45,6 +45,7 @@ function SearchProduct() {
               <th>Operations</th>
             </tr>
           </thead>
+          
           <tbody>
             {data.map((item) => (
               <tr key={item.id}>

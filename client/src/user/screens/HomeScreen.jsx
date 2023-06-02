@@ -6,7 +6,6 @@ import ProductCard from "../Components/ProductCard"
 function HomeScreen() {
   const [data, setData] = useState([]);
   const [products, setProducts] = useState([]);
-
   useEffect(() => {
     fetchData();
   }, []);
