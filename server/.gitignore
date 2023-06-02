@@ -16,8 +16,6 @@ yarn-error.log
 /.fleet
 /.idea
 /.vscode
-<<<<<<< HEAD
 .env
-=======
-.env
->>>>>>> 4bcba12c3caf95a718356e42e929f6adb57a4b82
+App.jsx
+

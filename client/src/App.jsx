@@ -7,7 +7,7 @@ import Protected from "./admin/Protected";
 import Login from "./admin/Login";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import ProductList from './admin/ProductList';
-import SearchProduct from './admin/SearchProduct';
+import SearchProduct from './user/Components/nav/SearchProduct';
 import Category from './admin/Category';
 import ProductByCategory from './admin/ProductByCategory';
 import Userlist from './user/Userlist';
@@ -16,6 +16,7 @@ import HomeScreen from "./user/screens/HomeScreen"
 import ClientForm from "./user/ClientForm";
 import ClientDetails from "./user/ClientDetails";
 import Nav from "./user/Components/nav/Nav";
+import Command from "./user/Command";
 import Cart from "./user/Cart";
 
 
@@ -26,30 +27,12 @@ function App() {
   return (
     <div>
       <BrowserRouter>
-        {/* <Routes>
-          <Route path="/" element={<Login />}>
-          <Route path="/user" element={<Userlist />}/>
-          <Route path="/Home" element={<HomeScreen />} />
-          <Route path="clientlist" element={<ClientList />} />
-          </Route>
-          <Route path="login" element={<Login />}>
-          </Route>
-          <Route path="add" element={<Protected Cmp={AddProduct} />} />
-          <Route path="/list" element={<Protected Cmp={ProductList} />} />
-          <Route path="/update/:id" element={<Protected Cmp={UpdateProduct} />} />
-          <Route path="/search" element={<Protected Cmp={SearchProduct} />} />
-          <Route path="/category" element={<Protected Cmp={Category} />} />
-          <Route path="/ProductByCat/:category" element={<Protected Cmp={ProductByCategory} />} />
-          <Route path="register" element={<Register />}>  
-          </Route>
-        </Routes> */}
         <Routes>
           <Route path="/" element={<Login />} />
           <Route path="/user" element={<Userlist />} />
           <Route path="/Home" element={<HomeScreen />} />
           <Route path="/Nav" element={<Nav/>}/>
           <Route path="/clientlist" element={<ClientList />} />
-          {/* <Route path="/clientdetails" element={<ClientDetails />} /> */}
           <Route path="login" element={<Login />} />
           <Route path="add" element={<Protected Cmp={AddProduct} />} />
           <Route path="/list" element={<Protected Cmp={ProductList} />} />
@@ -59,9 +42,10 @@ function App() {
           <Route path="/ProductByCat/:category" element={<Protected Cmp={ProductByCategory} />} />
           <Route path="register" element={<Register />} />
           <Route path="register/addclient" element={<ClientForm />} />
-          {/* <Route path="/command" component={Command} /> */}
-          {/* <Route path="/command/:id" element={<Command />} /> */}
-          <Route path="/cart" element={<Cart />} />
+          <Route path="/clients/:id" element={<ClientDetails />} />
+          <Route path="/command/:id" element={<Command />} />
+          <Route path="/command" element={<Command />} />
+          <Route path="/carts/:id" element={<Cart />} />
         </Routes>
 
       </BrowserRouter>
