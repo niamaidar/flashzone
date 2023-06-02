@@ -12,9 +12,13 @@ import Category from './admin/Category';
 import ProductByCategory from './admin/ProductByCategory';
 import Userlist from './user/Userlist';
 import ClientList from "./user/Clientlist";
-import HomeScreen from "./user/screens/HomeScreen";
+import HomeScreen from "./user/screens/HomeScreen"
 import ClientForm from "./user/ClientForm";
 import ClientDetails from "./user/ClientDetails";
+<<<<<<< HEAD
+=======
+import Nav from "./user/Components/nav/Nav";
+>>>>>>> 5225a738a57800d32c0b197205e52c6a428cf5bc
 import Cart from "./user/Cart";
 import Command from "./user/Command";
 import Nav from "./user/Components/Nav";
@@ -50,6 +54,7 @@ function App() {
           {/* //the landing page */}
           <Route path="/user" element={<Userlist />} />
           <Route path="/Home" element={<HomeScreen />} />
+          <Route path="/Nav" element={<Nav/>}/>
           <Route path="/clientlist" element={<ClientList />} />
           {/* <Route path="/clientdetails" element={<ClientDetails />} /> */}
           <Route path="login" element={<Login />} />
@@ -61,6 +66,7 @@ function App() {
           <Route path="/ProductByCat/:category" element={<Protected Cmp={ProductByCategory} />} />
           <Route path="register" element={<Register />} />
           <Route path="register/addclient" element={<ClientForm />} />
+<<<<<<< HEAD
 
           {/* <Route path="/command" component={Command} /> */}
           <Route path="/command/:id" element={<Command />} />
@@ -74,6 +80,11 @@ function App() {
 
 
 
+=======
+          {/* <Route path="/command" component={Command} /> */}
+          {/* <Route path="/command/:id" element={<Command />} /> */}
+          <Route path="/cart" element={<Cart />} />
+>>>>>>> 5225a738a57800d32c0b197205e52c6a428cf5bc
         </Routes>
 
       </BrowserRouter>
