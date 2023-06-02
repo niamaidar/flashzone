@@ -15,17 +15,11 @@ import ClientList from "./user/Clientlist";
 import HomeScreen from "./user/screens/HomeScreen";
 import ClientForm from "./user/ClientForm";
 import ClientDetails from "./user/ClientDetails";
-<<<<<<< HEAD
-import Navbar from "./user/Components/Navbar";
-=======
-import Command from "./user/Command";
 import Cart from "./user/Cart";
+import Command from "./user/Command";
+import Nav from "./user/Components/Nav";
 
 
-
-
-
->>>>>>> 90c73e45df4c4ed69bb8a9f49e3743c48fd36872
 
 function App() {
   const [count, setCount] = useState(0);
@@ -52,6 +46,8 @@ function App() {
         </Routes> */}
         <Routes>
           <Route path="/" element={<Login />} />
+
+          {/* //the landing page */}
           <Route path="/user" element={<Userlist />} />
           <Route path="/Home" element={<HomeScreen />} />
           <Route path="/clientlist" element={<ClientList />} />
@@ -65,18 +61,18 @@ function App() {
           <Route path="/ProductByCat/:category" element={<Protected Cmp={ProductByCategory} />} />
           <Route path="register" element={<Register />} />
           <Route path="register/addclient" element={<ClientForm />} />
-<<<<<<< HEAD
+
           {/* <Route path="/command" component={Command} /> */}
           <Route path="/command/:id" element={<Command />} />
-=======
-          <Route path="/clients/:id" element={<ClientDetails />} />
-<<<<<<< HEAD
-          <Route path="/Navbar" element={<Navbar />} />
+          <Route path="/command" element={<Command />} />
 
-=======
-          <Route path="/command" component={Command } />
->>>>>>> 90c73e45df4c4ed69bb8a9f49e3743c48fd36872
->>>>>>> a5c777358224d05dab6ed101994f037fe02ed6c6
+          <Route path="/clients/:id" element={<ClientDetails />} />
+          <Route path="/carts/:id" element={<Cart />} />
+          <Route path="/Nav" element={<Nav/>}/>
+          <Route path="/cart" element={<Cart />} />
+
+
+
 
         </Routes>
 
