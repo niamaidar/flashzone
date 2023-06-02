@@ -45,6 +45,7 @@ function SearchProduct() {
               <th>Operations</th>
             </tr>
           </thead>
+          
           <tbody>
             {data.map((item) => (
               <tr key={item.id}>
