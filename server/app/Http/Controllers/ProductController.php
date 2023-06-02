@@ -126,7 +126,7 @@ class ProductController extends Controller
             'price' => 'required|numeric',
             'description' => 'required',
             'name' => 'required',
-            'marque' => 'required',
+            'brand' => 'required',
             'quantity' => 'required|numeric',
             'category' => 'required',
         ]);

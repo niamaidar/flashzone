@@ -68,9 +68,9 @@ use Illuminate\Support\Facades\Route;
 //     return response()->json(['error' => 'Image not found'], 404);
 // });
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+// Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
 
 Route::post('register', [UserController::class, 'register']);
 Route::post('login', [UserController::class, 'login']);
@@ -99,13 +99,13 @@ Route::delete('/carts/{cartId}', [CartController::class, 'removeCartItem']);
 Route::resource('commands', CommandController::class);
 Route::resource('products', ProductController::class);
 
-Route::middleware(['auth:sanctum', 'admin'])->group(function () {
-    Route::post('addproduct', [ProductController::class, 'addProduct']);
-    Route::delete('delete/{id}', [ProductController::class, 'delete']);
-    Route::get('getProduct/{id}', [ProductController::class, 'getProduct']);
-    Route::get('search/{id}', [ProductController::class, 'search']);
-    Route::post('/updateProduct/{id}', [ProductController::class, 'updateProduct']);
-});
+// Route::middleware(['auth:sanctum', 'admin'])->group(function () {
+Route::post('addproduct', [ProductController::class, 'addProduct']);
+Route::delete('delete/{id}', [ProductController::class, 'delete']);
+Route::get('getProduct/{id}', [ProductController::class, 'getProduct']);
+Route::get('search/{id}', [ProductController::class, 'search']);
+Route::post('/updateProduct/{id}', [ProductController::class, 'updateProduct']);
+// });
 
 Route::get('categories', [ProductController::class, 'categories']);
 Route::get('categoryBycat/{category}', [ProductController::class, 'categoryBycat']);

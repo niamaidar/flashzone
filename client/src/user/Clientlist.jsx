@@ -113,7 +113,7 @@ function ClientList() {
             <div className="col-md-4 card-header" key={client.id}>
               <div className="card mb-3 card border-primary mb-3">
                 <div className="card-body">
-                  <h5 className="card-title">{client.user.name}</h5>
+                  <h5 className="card-title">{client.user.name} - {client.user.id}</h5>
                   <p className="card-text">First Name: {client.first_name}</p>
                   <p className="card-text">Last Name: {client.last_name}</p>
                   <p className="card-text">City: {client.city}</p>

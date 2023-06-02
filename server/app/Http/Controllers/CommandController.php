@@ -11,6 +11,11 @@ use Illuminate\Http\Request;
 
 class CommandController extends Controller
 {
+    public function show($cartId)
+    {
+        $cart = Cart::find($cartId);
+        return response()->json([$cart]);
+    }
     public function store(Request $request)
     {
         $request->validate([

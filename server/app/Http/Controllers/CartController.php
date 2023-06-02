@@ -10,8 +10,8 @@ class CartController extends Controller
     
     public function show($cartId)
     {
-        $cart = Cart::findOrFail($cartId);
-        return response()->json($cart);
+        $cart = Cart::find($cartId);
+        return response()->json([$cart]);
     }
     public function addToCart(Request $request)
     {

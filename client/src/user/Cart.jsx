@@ -1,13 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { Dialog, Transition } from '@headlessui/react';
+// import { XIcon } from '@heroicons/react/solid';
+// import { AiOutlineCloseCircle } from 'react-icons/ai';
 
 const Cart = () => {
   const [commands, setCommands] = useState([]);
+  const [open, setOpen] = useState(true);
+
 
   useEffect(() => {
     const fetchCommands = async () => {
       try {
-        const response = await axios.get('http://localhost:8000/api/clients/1/commands');
+        const response = await axios.get('http://localhost:8000/api/commands/3');
         setCommands(response.data);
       } catch (error) {
         console.log('Failed to fetch commands:', error);
@@ -17,18 +22,139 @@ const Cart = () => {
     fetchCommands();
   }, []);
 
-  return (
-    <div>
-      <h2>Cart</h2>
-      {commands.map((command) => (
-        <div key={command.id}>
-          <h3>Command ID: {command.id}</h3>
-          <p>Date: {command.datecommand}</p>
-          <p>Total Price: {command.totalPrice}</p>
+//   return (
+//     <div>
+//       <h2>Cart</h2>
+//       {commands && commands.map((command) => (
+//         <div key={command.id}>
+//           <h3>Command ID: {command.id}</h3>
+//           <p>Date: {command.datecommand}</p>
+//           <p>Total Price: {command.totalPrice}</p>
+//         </div>
+//       ))}
+//     </div>
+//   );
+// };
+return (
+    <Transition.Root show={open} as={React.Fragment}>
+      <Dialog as="div" className="fixed inset-0 overflow-hidden" onClose={() => setOpen(false)}>
+        <div className="absolute inset-0 overflow-hidden">
+          <Transition.Child
+            as={React.Fragment}
+            enter="ease-in-out duration-500"
+            enterFrom="opacity-0"
+            enterTo="opacity-100"
+            leave="ease-in-out duration-500"
+            leaveFrom="opacity-100"
+            leaveTo="opacity-0"
+          >
+            <Dialog.Overlay className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" />
+          </Transition.Child>
+
+          <div className="fixed inset-y-0 right-0 pl-10 max-w-full flex">
+            <Transition.Child
+              as={React.Fragment}
+              enter="transform transition ease-in-out duration-500 sm:duration-700"
+              enterFrom="translate-x-full"
+              enterTo="translate-x-0"
+              leave="transform transition ease-in-out duration-500 sm:duration-700"
+              leaveFrom="translate-x-0"
+              leaveTo="translate-x-full"
+            >
+              <div className="relative w-screen max-w-md">
+                <Transition.Child
+                  as={React.Fragment}
+                  enter="ease-in-out duration-500"
+                  enterFrom="opacity-0"
+                  enterTo="opacity-100"
+                  leave="ease-in-out duration-500"
+                  leaveFrom="opacity-100"
+                  leaveTo="opacity-0"
+                >
+                  <div className="absolute top-0 left-0 -ml-8 pt-4 pr-2 flex sm:-ml-10 sm:pr-4">
+                    <button
+                      type="button"
+                      className="rounded-md text-gray-300 hover:text-white focus:outline-none focus:ring-2 focus:ring-white"
+                      onClick={() => setOpen(false)}
+                    >
+                      <span className="sr-only">Close panel</span>
+                      {/* <XIcon className="h-6 w-6" aria-hidden="true" /> */}
+                      {/* <AiOutlineCloseCircle className="h-6 w-6" aria-hidden="true" /> */}
+
+                    </button>
+
+                  </div>
+                </Transition.Child>
+
+                <div className="h-full flex flex-col py-6 bg-white shadow-xl">
+                  <div className="px-4 sm:px-6">
+                    <h2 className="text-lg font-medium text-gray-900">Cart</h2>
+                  </div>
+
+                  <div className="mt-8 flex-1 overflow-y-auto px-4 sm:px-6">
+                    <div className="flow-root">
+                      <ul role="list" className="-my-6 divide-y divide-gray-200">
+                        {commands.map((command) => (
+                          <li key={command.id} className="flex py-6">
+                            <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
+                              <img
+                                src={command.imageSrc}
+                                alt={command.imageAlt}
+                                className="h-full w-full object-cover object-center"
+                              />
+                            </div>
+
+                            <div className="ml-4 flex flex-1 flex-col">
+                              <div className="flex justify-between text-base font-medium text-gray-900">
+                                <h3>
+                                  <a href={command.href}>{command.name}</a>
+                                </h3>
+                                <p className="ml-4">{command.price}</p>
+                              </div>
+                              <p className="mt-1 text-sm text-gray-500">{command.color}</p>
+                            </div>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+
+                  <div className="border-t border-gray-200 px-4 py-6 sm:px-6">
+                    <div className="flex justify-between text-base font-medium text-gray-900">
+                      <p>Subtotal</p>
+                      <p>$262.00</p>
+                    </div>
+                    <p className="mt-0.5 text-sm text-gray-500">Shipping and taxes calculated at checkout.</p>
+                    <div className="mt-6">
+                      <a
+                        href="#"
+                        className="flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700"
+                      >
+                        Checkout
+                      </a>
+                    </div>
+                    <div className="mt-6 flex justify-center text-center text-sm text-gray-500">
+                      <p>
+                        or{' '}
+                        <button
+                          type="button"
+                          className="font-medium text-indigo-600 hover:text-indigo-500"
+                          onClick={() => setOpen(false)}
+                        >
+                          Continue Shopping<span aria-hidden="true"> &rarr;</span>
+                        </button>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </Transition.Child>
+          </div>
         </div>
-      ))}
-    </div>
+      </Dialog>
+    </Transition.Root>
   );
 };
+
 
 export default Cart;
