@@ -5,22 +5,19 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Product extends Model
+class Command extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'name',
-        'file_path',
-        'description',
-        'price',
-        'brand',
-        'quantity',
-        'category',
-    ];
+        'datecommand',
+        'totalPrice',
+        'client_id',
+        'product_id'
 
-    public function commands()
+    ];
+    public function products()
     {
-        return $this->belongsToMany(Command::class, 'carts', 'product_id', 'command_id')
+        return $this->belongsToMany(Product::class, 'carts', 'command_id', 'product_id')
             ->withTimestamps();
     }
 
@@ -28,5 +25,8 @@ class Product extends Model
     {
         return $this->hasMany(Cart::class);
     }
-
 }
+
+
+
+    

@@ -25,6 +25,12 @@
  diri migrate : php artisan migrate:refresh
  ( rah zdte champ rating o rateReview)
  DAMNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+
+
+ composer dump-autoload
+ php artisan cache:clear
+
+
  
 
 
