@@ -5,6 +5,7 @@ use App\Http\Controllers\ClientController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CommandController;
+use App\Http\Controllers\ReviewsController;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -118,3 +119,7 @@ Route::get('/images/{filename}', function ($filename) {
 
     return response()->json(['error' => 'Image not found'], 404);
 });
+
+//show all reviews
+Route::get('listReview', [ReviewsController::class, 'listReview']);
+

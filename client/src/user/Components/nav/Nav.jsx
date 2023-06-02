@@ -5,6 +5,9 @@ import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import { Layout } from "./Layout";
 import { FlashZone } from "./FlashZone";
 import { SearchIcon } from "./SearchIcon";
+import { Link } from "react-router-dom";
+
+
 
 export default function Nav() {
   return (
@@ -83,17 +86,18 @@ export default function Nav() {
               </Dropdown.Trigger>
             </Navbar.Item>
             <Dropdown.Menu
-              aria-label="User menu actions"
-              color="secondary"
-              onAction={(actionKey) => console.log({ actionKey })}
-            >
-              <Dropdown.Item key="profile" css={{ height: "$18" }}>
-                <Text b color="inherit" css={{ d: "flex" }}>My Profile</Text>
-              </Dropdown.Item>
+            aria-label="User menu actions"
+            color="secondary"
+          >
+            <Dropdown.Item key="profile" css={{ height: "$18" }}>
+              <Text b color="inherit" css={{ d: "flex" }}>
+                <Link to="register/addclient" style={{textDecoration:"none",color:"black"}}>My Profile</Link></Text>
+            </Dropdown.Item>
               <Dropdown.Item key="logout" withDivider color="error">
-                Log Out
+                <Link to="/register" style={{textDecoration:"none",color:"red"}}>Log Out</Link>
               </Dropdown.Item>
-            </Dropdown.Menu>
+          </Dropdown.Menu>
+
           </Dropdown>
         </Navbar.Content>
       </Navbar>

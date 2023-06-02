@@ -47,6 +47,7 @@ function App() {
           <Route path="/" element={<Login />} />
           <Route path="/user" element={<Userlist />} />
           <Route path="/Home" element={<HomeScreen />} />
+          <Route path="/Nav" element={<Nav/>}/>
           <Route path="/clientlist" element={<ClientList />} />
           {/* <Route path="/clientdetails" element={<ClientDetails />} /> */}
           <Route path="login" element={<Login />} />
@@ -59,7 +60,7 @@ function App() {
           <Route path="register" element={<Register />} />
           <Route path="register/addclient" element={<ClientForm />} />
           {/* <Route path="/command" component={Command} /> */}
-          <Route path="/command/:id" element={<Command />} />
+          {/* <Route path="/command/:id" element={<Command />} /> */}
           <Route path="/cart" element={<Cart />} />
         </Routes>
 

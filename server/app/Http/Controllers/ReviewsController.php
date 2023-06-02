@@ -10,6 +10,10 @@ class ReviewsController extends Controller
     /**
      * Display a listing of the resource.
      */
+    function listReview()
+    {
+        return Reviews::all();
+    }
     public function index()
     {
         //
