@@ -9,3 +9,9 @@ export default defineConfig({
         }),
     ],
 });
+module.exports = {
+    optimizeDeps: {
+      exclude: ['react-icons'],
+    },
+  };
+  
