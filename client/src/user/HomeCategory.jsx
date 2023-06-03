@@ -30,10 +30,10 @@ export default function HomeCategory() {
         <Navbar.Brand css={{ mr: "$4" }}>
           <FlashZone />
           <Navbar.Content hideIn="xs" variant="highlight">
-            <Navbar.Link isActive href="#">
+          <Link to="/Nav" style={{textDecoration:"none"}}> <Navbar.Link>
               Home
-            </Navbar.Link>
-            <Navbar.Link href="../../Category">Categories</Navbar.Link>
+            </Navbar.Link></Link>
+            <Navbar.Link isActive href="">Categories</Navbar.Link>
           </Navbar.Content>
         </Navbar.Brand>
         <Navbar.Content
