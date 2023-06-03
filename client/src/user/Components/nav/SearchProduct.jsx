@@ -45,10 +45,10 @@ function SearchProduct() {
         <Navbar.Brand css={{ mr: "$4" }}>
           <FlashZone />
           <Navbar.Content hideIn="xs" variant="highlight">
-            <Navbar.Link isActive href="#">
+          <Link style={{textDecoration:"none"}}to="/Nav"> <Navbar.Link>
               Home
-            </Navbar.Link>
-            <Navbar.Link href="#">Categories</Navbar.Link>
+            </Navbar.Link> </Link>
+            <Link style={{textDecoration:"none"}}to="/Categories"><Navbar.Link>Categories</Navbar.Link></Link>
           </Navbar.Content>
         </Navbar.Brand>
         <Navbar.Content

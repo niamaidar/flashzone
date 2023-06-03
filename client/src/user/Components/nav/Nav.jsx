@@ -9,7 +9,6 @@ import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import SearchProduct from "./SearchProduct";
 
-
 export default function Nav() {
   const navigate = useNavigate();
   const [searchTerm, setSearchTerm] = useState("");
@@ -31,10 +30,10 @@ export default function Nav() {
         <Navbar.Brand css={{ mr: "$4" }}>
           <FlashZone />
           <Navbar.Content hideIn="xs" variant="highlight">
-            <Navbar.Link isActive href="#">
+          <Link style={{textDecoration:"none"}}to="/Nav"> <Navbar.Link isActive href="">
               Home
-            </Navbar.Link>
-            <Navbar.Link href="../../HomeCategory">Categories</Navbar.Link>
+            </Navbar.Link></Link>
+            <Link style={{textDecoration:"none"}}to="/Categories"> <Navbar.Link>Categories</Navbar.Link></Link>
           </Navbar.Content>
         </Navbar.Brand>
         <Navbar.Content
