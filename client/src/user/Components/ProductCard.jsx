@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./ProductCard.css";
 import Rating from "./Rating";
 
@@ -28,9 +29,13 @@ const ProductCard = ({ product, review }) => {
         ) : (
           <p>No rating available</p>
         )}
+       
+       
+       <Link className="btn btn-outline-light" to={`/product/${product.id}`}>
         <button className="ProductCard_button p-2 bg-orange-600 text-white rounded hover:bg-orange-500">
-          Add to basket
+          Show More
         </button>
+      </Link>
       </>
     </div>
   );
