@@ -21,7 +21,7 @@ class UserController extends Controller
             "name"=>$req->name,
             "email"=>$req->email,
             "password"=>Hash::make($req->password),
-            'is_admin' => false, // Set the user as admin
+            // 'is_admin' => false, // Set the user as admin
 
         ]);
         return response()->json([
@@ -32,14 +32,36 @@ class UserController extends Controller
         
 
     }
-    function login(Request $req)
+    // function login(Request $req)
+    // {
+    //     $user=User::where('email',$req->email)->first();
+    //     if(!$user || !Hash::check($req->password,$user->password))
+    //     {
+    //         return ["error"=>"Email or password is not match"];
+    //     }
+    //     return $user;
+    // }
+    
+    public function login(Request $request)
     {
-        $user=User::where('email',$req->email)->first();
-        if(!$user || !Hash::check($req->password,$user->password))
-        {
-            return ["error"=>"Email or password is not match"];
+        // $fileds = $request->validate([
+        //     "email" => 'required|email',
+        //     "password" => 'string|required',
+        // ]);
+
+        // Check Email Or Password
+        $user = User::where("email", $request->email)->first();
+
+        if (!$user || !Hash::check($request->password, $user->password)) {
+            return response([
+                "message" => "The email/username or password you entered is incorrect. Please try again.",
+            ], 401);
+        } else {
+            
+            return response([
+                "user" => $user,
+            ], 200);
         }
-        return $user;
     }
     
 }

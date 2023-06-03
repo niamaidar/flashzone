@@ -82,33 +82,30 @@ function Register() {
 
   useEffect(() => {
     if (localStorage.getItem("user-info")) {
-      navigate("/add");
+      // navigate("/add");
     }
   }, []);
 
   async function signUp() {
-    if (name === "" || role === "") {
-      alert("Name and role fields cannot be empty");
-      return;
-    }
 
     try {
       let result = await axios.post("http://localhost:8000/api/register", {
         name: name,
         email: email,
         password: password,
-        role: role,
       });
-      console.log(result);
+      // console.log(result);
 
-      if (role === "admin") {
-        navigate("/list");
-      } else {
-        navigate("/user");
-      }
+      // if (role === "admin") {
+      //   navigate("/login");
+      // } else {
+      //   navigate("/user");
+      // }
 
-      localStorage.setItem("user-info", JSON.stringify(result.data));
-    } catch (error) {
+      // localStorage.setItem("user-info", JSON.stringify(result.data));
+      navigate('/login');
+    } 
+    catch (error) {
       console.log(error);
     }
   }
@@ -125,7 +122,7 @@ function Register() {
           className="form-control"
         />
       </div>
-      <div className="mb-3">
+      {/* <div className="mb-3">
         <label className="form-label">Role</label>
         <select
           value={role}
@@ -135,7 +132,7 @@ function Register() {
           <option value="user">User</option>
           <option value="admin">Admin</option>
         </select>
-      </div>
+      </div> */}
       <div className="mb-3">
         <label className="form-label">Email</label>
         <input

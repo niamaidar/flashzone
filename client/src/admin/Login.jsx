@@ -5,6 +5,7 @@ import { faGooglePlus, faTwitter, faFacebookF } from "@fortawesome/free-brands-s
 
 import Header from "./Header";
 import './login.css';
+import axios from "axios";
 
 function Login() {
   const navigate = useNavigate();
@@ -18,22 +19,16 @@ function Login() {
   }, []);
 
   async function login() {
-    console.warn(email, password);
-    let item = { email, password };
-    let result = await fetch("http://localhost:8000/api/login", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-      body: JSON.stringify(item),
-    });
-
-    result = await result.json();
-    localStorage.setItem("user-info", JSON.stringify(result));
-    navigate("/list");
-  }
-
+    const data = {email,password}
+    try {
+      const response = await axios.post("http://localhost:8000/api/login", data);
+      localStorage.setItem("user-info", JSON.stringify(response.data));
+        navigate('/list');
+    } catch (error) {
+      console.log(error);
+    }}
+  
+  
   return (
     <div className="card">
       <form className="box">
