@@ -9,7 +9,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import ProductList from './admin/ProductList';
 import SearchProduct from './user/Components/nav/SearchProduct';
 import Category from './user/Category';
-import ProductByCategory from './admin/ProductByCategory';
+import ProductByCategory from './user/ProductByCategory';
 import Userlist from './user/Userlist';
 import ClientList from "./user/Clientlist";
 import HomeScreen from "./user/screens/HomeScreen"
