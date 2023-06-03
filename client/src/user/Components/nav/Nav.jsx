@@ -7,6 +7,8 @@ import { FlashZone } from "./FlashZone";
 import { SearchIcon } from "./SearchIcon";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
+import SearchProduct from "./SearchProduct";
+
 
 export default function Nav() {
   const navigate = useNavigate();
@@ -23,6 +25,7 @@ export default function Nav() {
     setSearchTerm(event.target.value);
   };
   return (
+    <>   {searchTerm === "" ?
     <Layout>
       <Navbar isBordered variant="sticky">
         <Navbar.Brand css={{ mr: "$4" }}>
@@ -31,7 +34,7 @@ export default function Nav() {
             <Navbar.Link isActive href="#">
               Home
             </Navbar.Link>
-            <Navbar.Link href="#">Categories</Navbar.Link>
+            <Navbar.Link href="../../HomeCategory">Categories</Navbar.Link>
           </Navbar.Content>
         </Navbar.Brand>
         <Navbar.Content
@@ -114,6 +117,7 @@ export default function Nav() {
           </Dropdown>
         </Navbar.Content>
       </Navbar>
-    </Layout>
+    </Layout>: <SearchProduct searchTerm={searchTerm} /> }
+    </> 
   );
 }

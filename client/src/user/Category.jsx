@@ -5,7 +5,7 @@ import img2 from '../images/cam2.jpg';
 import img3 from '../images/access1.jpg';
 import img4 from '../images/add.png';
 import { Link } from "react-router-dom";
-import Header from "./Header";
+import Header from "../admin/Header";
 
 import './category.css';
 function Category() {
@@ -27,11 +27,7 @@ function Category() {
 
   return (
     <div>
-    <Header />
     <div className="card-container">
-      <Link to="/add"><img src={img4} style={{width:"50px"}} alt='add category'/></Link>
-      <p>Add a new product in a category</p>
-      <br/>
       <div className="row">
         <div className="col-md-4">
           <Card>
