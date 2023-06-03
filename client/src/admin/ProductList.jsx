@@ -34,7 +34,6 @@ function ProductList() {
     });
     result = await result.json();
     console.warn(result);
-    I;
     getData();
   }
   async function getData() {
@@ -70,7 +69,7 @@ function ProductList() {
                   <td>{item.name}</td>
                   <td>{item.description}</td>
                   <td>{item.price}</td>
-                  <td>{item.marque}</td>
+                  <td>{item.brand}</td>
                   <td>{item.quantity}</td>
                   <td>{item.category}</td>
                   <td>

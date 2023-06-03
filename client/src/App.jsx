@@ -19,6 +19,8 @@ import ClientDetails from "./user/ClientDetails";
 import Nav from "./user/Components/nav/Nav";
 import Cart from "./user/Cart";
 import Command from "./user/Command";
+import ProductDetails from "./user/Components/ProductDetails";
+
 
 
 
@@ -49,6 +51,7 @@ function App() {
           <Route path="/command/:id" element={<Command />} />
           <Route path="/command" element={<Command />} />
           <Route path="/carts/:id" element={<Cart />} />
+          <Route path="/product/:id" element={<ProductDetails />} />
 
           {/* <Route path="/command" component={Command} /> */}
           <Route path="/command/:id" element={<Command />} />
@@ -58,6 +61,7 @@ function App() {
           <Route path="/carts/:id" element={<Cart />} />
           <Route path="/Nav" element={<Nav/>}/>
           <Route path="/cart" element={<Cart />} />
+   
 
 
 

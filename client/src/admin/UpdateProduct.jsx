@@ -8,7 +8,7 @@ function UpdateProduct(props) {
   const [price, setPrice] = useState('');
   const [file, setFile] = useState(null);
   const [description, setDescription] = useState('');
-  const [marque, setMarque] = useState('');
+  const [brand, setBrand] = useState('');
   const [quantity, setQuantity] = useState('');
   const [category, setCategory] = useState('');
   const navigate = useNavigate();
@@ -23,7 +23,7 @@ function UpdateProduct(props) {
         setName(result.name);
         setPrice(result.price);
         setDescription(result.description);
-        setMarque(result.marque);
+        setBrand(result.brand);
         setQuantity(result.quantity);
         setCategory(result.category);
       } catch (error) {
@@ -42,7 +42,7 @@ function UpdateProduct(props) {
       formData.append('name', name);
       formData.append('price', price);
       formData.append('description', description);
-      formData.append('marque', marque);
+      formData.append('brand', brand);
       formData.append('quantity', quantity);
       formData.append('category', category);
       if (file) {
@@ -70,7 +70,7 @@ function UpdateProduct(props) {
 
   return (
     <div>
-      <Header />
+      {/* <Header /> */}
       <h2 className='text-center'>Update Product</h2>
       <div className="col-sm-6 offset-sm-3">
         <form onSubmit={handleUpdate}>
@@ -80,7 +80,7 @@ function UpdateProduct(props) {
             <input type='file' onChange={(e) => setFile(e.target.files[0])} className="form-control" placeholder='file path' /> <br /> <br />
             <img style={{ width: 100 }} src={`http://localhost:8000/${data.file_path}`} alt="Product Image" /> <br /> <br />
             <input type='text' value={description} onChange={(e) => setDescription(e.target.value)} className="form-control" placeholder='description' /> <br /> <br />
-            <input type='text' value={marque} onChange={(e) => setMarque(e.target.value)} className="form-control" placeholder='marque' /> <br /> <br />
+            <input type='text' value={brand} onChange={(e) => setBrand(e.target.value)} className="form-control" placeholder='brand' /> <br /> <br />
             <input type='text' value={quantity} onChange={(e) => setQuantity(e.target.value)} className="form-control" placeholder='quantity' /> <br /> <br />
             <input type='text' value={category} onChange={(e) => setCategory(e.target.value)} className="form-control" placeholder='category' /> <br /> <br />
             <button type="submit" className="btn btn-primary">Update product</button>
