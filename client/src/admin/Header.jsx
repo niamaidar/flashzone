@@ -1,6 +1,10 @@
 import { Navbar, Nav, NavDropdown } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
-import img from '../images/logo2.png'
+import img from '../images/logo2.png';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUserTie } from '@fortawesome/free-solid-svg-icons';
+
+
 function Header() {
   let user = JSON.parse(localStorage.getItem('user-info'))
   const navigate = useNavigate()
@@ -31,7 +35,9 @@ function Header() {
         
         {localStorage.getItem('user-info') ?
         <Nav>
-          <NavDropdown title={('username')}>
+        <FontAwesomeIcon icon={faUserTie} />
+
+          <NavDropdown title={<FontAwesomeIcon icon={faUserTie} size="2xl"/>}>
           {/* <NavDropdown title={user.name}> */}
             <NavDropdown.Item onClick={logOut}>Logout</NavDropdown.Item>
           </NavDropdown>
