@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class CartController extends Controller
 {
-    
+
     public function show($cartId)
     {
         $cart = Cart::find($cartId);
@@ -19,7 +19,7 @@ class CartController extends Controller
         $request->validate([
             'product_id' => 'required|exists:products,id',
         ]);
-        
+
 
         $cart = Cart::create($request->all());
 
@@ -45,6 +45,11 @@ class CartController extends Controller
     //     return response()->json($cartItem);
     // }
 
+    public function showCart(){
+        $cartItem = Cart::all();
+        return response()->json($cartItem, 201);
+
+    }
     public function removeCartItem($cartId)
     {
         $cartItem = Cart::findOrFail($cartId);

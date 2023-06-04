@@ -1,9 +1,8 @@
 import { useState } from "react";
 import "./App.css";
-import Register from "./admin/Register";
+// import Register from "./admin/Register";
 import AddProduct from "./admin/AddProduct";
 import UpdateProduct from "./admin/UpdateProduct";
-import Protected from "./admin/Protected";
 import Login from "./admin/Login";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import ProductList from './admin/ProductList';
@@ -27,11 +26,7 @@ import Image from "./LandingPage/Image";
 import Footer from "./user/Components/nav/Footer";
 import Description from "./LandingPage/Description";
 import Register2 from "./admin/Register2";
-<<<<<<< HEAD
 import Panier from "./user/Panier";
-=======
-// import Panier from "./user/Panier";
->>>>>>> b4708908820c182643fcacfdf9662bc47655e427
 
 function App() {
   return (
@@ -41,6 +36,7 @@ function App() {
           <Route path="/register" element={<Register2/>}/>
           {/* <Route path="/login" element={<Login />} /> */}
           <Route path="/login" element={<Login2 />} />
+
           {/* //the landing page */}
           <Route path="/user" element={<Userlist />} />
           <Route path="/Home" element={<HomeScreen />} />
@@ -59,7 +55,7 @@ function App() {
           <Route path="/command/:id" element={<Command />} />
           <Route path="/command" element={<Command />} />
           <Route path="/carts/:id" element={<Cart />} />
-          <Route path="/product/:id" element={<ProductDetails />} />
+          <Route path="/products/:id" element={<ProductDetails />} />
           <Route path="/Categories" element={<HomeCategory />} />
           {/* <Route path="/command" component={Command} /> */}
           <Route path="/command/:id" element={<Command />} />
@@ -78,11 +74,7 @@ function App() {
               <Description/>
               <Footer/>
             </>}/>
-<<<<<<< HEAD
             <Route path="/panier" element={<Panier/>}/>
-=======
-            {/* <Route path="/panier" element={<Panier/>}/> */}
->>>>>>> b4708908820c182643fcacfdf9662bc47655e427
 
 
         </Routes>

@@ -9,7 +9,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import SearchProduct from "./SearchProduct";
 import Footer from "./Footer";
-import Hero from "./Hero";
+
 
 
 
@@ -122,8 +122,7 @@ export default function Nav() {
         </Navbar.Content>
       </Navbar>
     </Layout>: <SearchProduct searchTerm={searchTerm} /> }
-    {/* <Hero />
-    <Footer /> */}
+    <Footer />
     </> 
   );
 }

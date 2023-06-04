@@ -83,7 +83,7 @@ Route::post('/clients', [ClientController::class, 'store']);
 Route::delete('/clients/{id}', [ClientController::class, 'destroy']);
 Route::put('/clients/{id}', [ClientController::class, 'update']);
 Route::get('/clients/{id}', [ClientController::class, 'show']);
-
+Route::get('/CartsItem', [CartController::class, 'showCart']);
 Route::get('/carts/{id}', [CartController::class, 'show']);
 Route::get('/clients/{id}/carts', [CartController::class, 'getClientCarts']);
 
