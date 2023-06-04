@@ -1,15 +1,19 @@
-
-
 import { useState, useEffect } from 'react';
 import Rating from './Rating';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
-
+import Comments from '../Comments'
 
 const ProductPage = () => {
     const [product, setProduct] = useState(null);
     const [error, setError] = useState(null);
     const {id} = useParams()
+    function removeProductPrefix(imageString) {
+      return imageString.replace("products/", "");
+    }
+    let str = "products/KYDsCfjFfChZxrkX3x20AslI60z5WgdMvdJXY9zE.jpg";
+    console.log(str.trim("products/"));
+    console.warn("results", product);
 
  const fetchProduct = async () => {
             try {
@@ -46,7 +50,9 @@ return (
           {product && (
             <img
               className="ProductDetails_image img-fluid"
-              src={`http://localhost:8000/api/images/${product.file_path}`}
+              src={`http://localhost:8000/api/images/${removeProductPrefix(
+                product.file_path
+              )}`}              
               alt="Product"
             />
           )}
@@ -63,19 +69,7 @@ return (
           </div>
         </div>
         <hr />
-        <div className="card-body">
-          <h3>Comments</h3>
-          {product && product.comments && product.comments.length > 0 ? (
-            product.comments.map((comment) => (
-              <div key={comment.id} className="ProductDetails_comment">
-                {/* <Rating value={comment.rating} /> */}
-                <p>{comment.comment}</p>
-              </div>
-            ))
-          ) : (
-            <p>No comments available</p>
-          )}
-        </div>
+         <Comments/>
         {/* <div className="card-footer">
           <h4>Add a Comment</h4>
           <textarea

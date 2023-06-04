@@ -20,19 +20,20 @@ import Nav from "./user/Components/nav/Nav";
 import Cart from "./user/Cart";
 import Command from "./user/Command";
 import ProductDetails from "./user/Components/ProductDetails";
-
-
+import Comments from "./user/Comments";
+import Login2 from "./admin/LoginPage/Login2";
+import Navbar from './LandingPage/Navbar'
+import Image from "./LandingPage/Image";
 
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
     <div>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Login />} />
-
+          <Route path="/login" element={<Login />} />
+          <Route path="/" element={<Login2 />} />
+          <Route path="/image" element={<Image/>}/>
           {/* //the landing page */}
           <Route path="/user" element={<Userlist />} />
           <Route path="/Home" element={<HomeScreen />} />
@@ -60,8 +61,9 @@ function App() {
           <Route path="/clients/:id" element={<ClientDetails />} />
           <Route path="/carts/:id" element={<Cart />} />
           <Route path="/cart" element={<Cart />} />
+          <Route path="/Comments" element={<Comments/>}/>
    
-
+          <Route path="/Navbar" element={<Navbar/>}/>
 
 
 

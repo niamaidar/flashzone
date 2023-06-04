@@ -109,7 +109,7 @@ export default function Nav() {
                 <Link to="/clients/2" style={{textDecoration:"none",color:"black"}}>My Profile</Link></Text>
             </Dropdown.Item>
               <Dropdown.Item key="logout" withDivider color="error">
-                <Link to="/register" style={{textDecoration:"none",color:"red"}}>Log Out</Link>
+                <Link to="/" style={{textDecoration:"none",color:"red"}}>Log Out</Link>
               </Dropdown.Item>
           </Dropdown.Menu>
 

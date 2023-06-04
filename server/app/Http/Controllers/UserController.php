@@ -21,7 +21,6 @@ class UserController extends Controller
             "name"=>$req->name,
             "email"=>$req->email,
             "password"=>Hash::make($req->password),
-            // 'is_admin' => false, // Set the user as admin
 
         ]);
         return response()->json([
@@ -29,7 +28,7 @@ class UserController extends Controller
             'user'=>$user,
             'message_admin'=>'user registered successfully'
         ]);
-        
+
 
     }
     // function login(Request $req)
@@ -41,7 +40,7 @@ class UserController extends Controller
     //     }
     //     return $user;
     // }
-    
+
     public function login(Request $request)
     {
         // $fileds = $request->validate([
@@ -57,11 +56,11 @@ class UserController extends Controller
                 "message" => "The email/username or password you entered is incorrect. Please try again.",
             ], 401);
         } else {
-            
+
             return response([
                 "user" => $user,
             ], 200);
         }
     }
-    
+
 }
