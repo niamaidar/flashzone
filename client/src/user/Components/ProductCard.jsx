@@ -8,6 +8,7 @@ const ProductCard = ({ product, review }) => {
   }
 
   return (
+    <div className="contain center">
     <div className="ProductCard_wrapper border flex-column border-2 m-2 flex  p-2 rounded items-between flex-wrap w-[300px]">
       <>
         <img
@@ -37,6 +38,7 @@ const ProductCard = ({ product, review }) => {
         </button>
       </Link>
       </>
+    </div>
     </div>
   );
 };

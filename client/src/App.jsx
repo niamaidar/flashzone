@@ -24,16 +24,18 @@ import Comments from "./user/Comments";
 import Login2 from "./admin/LoginPage/Login2";
 import Navbar from './LandingPage/Navbar'
 import Image from "./LandingPage/Image";
-
+import Footer from "./user/Components/nav/Footer";
+import Description from "./LandingPage/Description";
+import Register2 from "./admin/Register2";
 
 function App() {
   return (
     <div>
       <BrowserRouter>
         <Routes>
-          <Route path="/login" element={<Login />} />
-          <Route path="/" element={<Login2 />} />
-          <Route path="/image" element={<Image/>}/>
+          <Route path="/register" element={<Register2/>}/>
+          {/* <Route path="/login" element={<Login />} /> */}
+          <Route path="/login" element={<Login2 />} />
           {/* //the landing page */}
           <Route path="/user" element={<Userlist />} />
           <Route path="/Home" element={<HomeScreen />} />
@@ -46,7 +48,7 @@ function App() {
           <Route path="/search" element={<Protected Cmp={SearchProduct} />} />
           <Route path="/category" element={Category} />
           <Route path="/ProductByCat/:category" element={<Protected Cmp={ProductByCategory} />} />
-          <Route path="register" element={<Register />} />
+          {/* <Route path="register" element={<Register />} /> */}
           <Route path="register/addclient" element={<ClientForm />} />
           <Route path="/clients/:id" element={<ClientDetails />} />
           <Route path="/command/:id" element={<Command />} />
@@ -63,7 +65,14 @@ function App() {
           <Route path="/cart" element={<Cart />} />
           <Route path="/Comments" element={<Comments/>}/>
    
-          <Route path="/Navbar" element={<Navbar/>}/>
+          <Route path="/" element={
+            <>
+              <Navbar/>
+              <Image/>
+              <HomeScreen/>
+              <Description/>
+              <Footer/>
+            </>}/>
 
 
 

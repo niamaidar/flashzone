@@ -1,14 +1,13 @@
 import React, { useEffect, useState} from "react";
-import { Card } from "react-bootstrap";
 import axios from "axios";
 import { useParams, Link, useNavigate} from "react-router-dom";
 import { Navbar, Text, Dropdown, Input } from "@nextui-org/react";
-import { BsPersonCircle } from 'react-icons/bs';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import { FlashZone } from "../user/Components/nav/FlashZone";
 import { SearchIcon } from "../user/Components/nav/SearchIcon";
-import Image from "./Image"
+import { faUserPlus } from '@fortawesome/free-solid-svg-icons';
+
 function NavHome(){
     const navigate = useNavigate();
     const [searchTerm, setSearchTerm] = useState("");
@@ -47,14 +46,15 @@ function NavHome(){
     return (
         <div>
             <Navbar isBordered variant="sticky">
-                <Navbar.Brand css={{ mr: "$4" }}>
+                <Navbar.Brand css={{ mr: "$6" }}>
                 <FlashZone />
+                <div style={{ marginLeft: '20px' }}>
                 <Navbar.Content hideIn="xs" variant="highlight">
-                <Link style={{textDecoration:"none"}}to="/Home"> <Navbar.Link isActive href="">
-                    Home
-                    </Navbar.Link></Link>
+                <Link style={{textDecoration:"none",backgroundColor:"orange"}}to="/Home"> <Navbar.Link href="">
+                       Home
+                </Navbar.Link></Link>
                     <Link style={{textDecoration:"none"}}to="/Categories"> <Navbar.Link>Categories</Navbar.Link></Link>
-                </Navbar.Content>
+                </Navbar.Content></div>
                 </Navbar.Brand>
                 <Navbar.Content
                 css={{
@@ -64,38 +64,6 @@ function NavHome(){
                     },
                 }}
                 >
-                <Navbar.Item
-                    css={{
-                    "@xsMax": {
-                        w: "100%",
-                        jc: "center",
-                    },
-                    }}
-                ><form onSubmit={handleSearchSubmit}>
-                    <Input
-                    clearable
-                    contentLeft={
-                        <SearchIcon fill="var(--nextui-colors-accents6)" size={16} />
-                    }
-                    contentLeftStyling={false}
-                    css={{
-                        w: "100%",
-                        "@xsMax": {
-                        mw: "300px",
-                        },
-                        "& .nextui-input-content--left": {
-                        h: "100%",
-                        ml: "$4",
-                        dflex: "center",
-                        },
-                    }}
-                    placeholder="Search..."
-                    value={searchTerm}
-                    onChange={handleSearchChange}
-                    
-                    />
-                    </form>
-                </Navbar.Item>
                 <Navbar.Link href="#"><FontAwesomeIcon style={{
                         width: '30px',
                         height: '30px',
@@ -103,9 +71,17 @@ function NavHome(){
                         padding: '0',
                         cursor: 'pointer',
                         }} icon={faShoppingCart} /></Navbar.Link>
+                         <Navbar.Item
+                    css={{
+                    "@xsMax": {
+                        w: "100%",
+                        jc: "center",
+                    },
+                    }}
+                ><Link style={{textDecoration:"none"}}to="/Register"><Navbar.Link>Subscribe <div><FontAwesomeIcon icon={faUserPlus} /></div> </Navbar.Link></Link>
+                </Navbar.Item>
                 </Navbar.Content>
             </Navbar>
-            <Image/>
         </div>
     )
 }
