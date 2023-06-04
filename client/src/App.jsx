@@ -52,7 +52,7 @@ function App() {
           <Route path="/command/:id" element={<Command />} />
           <Route path="/command" element={<Command />} />
           <Route path="/carts/:id" element={<Cart />} />
-          <Route path="/product/:id" element={<ProductDetails />} />
+          <Route path="/products/:id" element={<ProductDetails />} />
           <Route path="/Categories" element={<HomeCategory />} />
           {/* <Route path="/command" component={Command} /> */}
           <Route path="/command/:id" element={<Command />} />
