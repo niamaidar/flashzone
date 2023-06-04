@@ -15,35 +15,35 @@ class CartController extends Controller
     }
     public function addToCart(Request $request)
     {
+        dd($request->all());
         $request->validate([
-            'command_id' => 'required|exists:commands,id',
             'product_id' => 'required|exists:products,id',
         ]);
-        dd($request->all());
+        
 
         $cart = Cart::create($request->all());
 
         return response()->json($cart, 201);
     }
 
-    public function getCartItems($commandId)
-    {
-        $cartItems = Cart::where('command_id', $commandId)->get();
+    // public function getCartItems($commandId)
+    // {
+    //     $cartItems = Cart::where('command_id', $commandId)->get();
 
-        return response()->json($cartItems);
-    }
+    //     return response()->json($cartItems);
+    // }
 
-    public function updateCartItem(Request $request, $cartId)
-    {
-        $request->validate([
-            'product_id' => 'required|exists:products,id',
-        ]);
+    // public function updateCartItem(Request $request, $cartId)
+    // {
+    //     $request->validate([
+    //         'product_id' => 'required|exists:products,id',
+    //     ]);
 
-        $cartItem = Cart::findOrFail($cartId);
-        $cartItem->update($request->all());
+    //     $cartItem = Cart::findOrFail($cartId);
+    //     $cartItem->update($request->all());
 
-        return response()->json($cartItem);
-    }
+    //     return response()->json($cartItem);
+    // }
 
     public function removeCartItem($cartId)
     {

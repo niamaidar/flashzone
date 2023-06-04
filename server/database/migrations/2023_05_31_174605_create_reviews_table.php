@@ -17,9 +17,16 @@ return new class extends Migration
             $table->integer('numReviews');
             $table->string('comment');
             $table->unsignedBigInteger('produit_id');
+           
             $table->foreign('produit_id')
                     ->references('id')
                     ->on('products')
+                    ->onUpdate('cascade')
+                    ->onDelete('cascade');  
+            $table->unsignedBigInteger('client_id');
+            $table->foreign('client_id')
+                    ->references('id')
+                    ->on('clients')
                     ->onUpdate('cascade')
                     ->onDelete('cascade');
             $table->timestamps();

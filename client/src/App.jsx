@@ -27,7 +27,11 @@ import Image from "./LandingPage/Image";
 import Footer from "./user/Components/nav/Footer";
 import Description from "./LandingPage/Description";
 import Register2 from "./admin/Register2";
+<<<<<<< HEAD
 import Panier from "./user/Panier";
+=======
+// import Panier from "./user/Panier";
+>>>>>>> b4708908820c182643fcacfdf9662bc47655e427
 
 function App() {
   return (
@@ -43,12 +47,12 @@ function App() {
           <Route path="/Nav" element={<Nav/>}/>
           <Route path="/clientlist" element={<ClientList />} />
           <Route path="login" element={<Login />} />
-          <Route path="add" element={<Protected Cmp={AddProduct} />} />
-          <Route path="/list" element={<Protected Cmp={ProductList} />} />
-          <Route path="/update/:id" element={<Protected Cmp={UpdateProduct} />} />
-          <Route path="/search" element={<Protected Cmp={SearchProduct} />} />
-          <Route path="/category" element={Category} />
-          <Route path="/ProductByCat/:category" element={<Protected Cmp={ProductByCategory} />} />
+          <Route path="add" element={<AddProduct />} />
+          <Route path="/list" element={<ProductList />} />
+          <Route path="/update/:id" element={<UpdateProduct />} />
+          <Route path="/search" element={<SearchProduct />} />
+          <Route path="/category" element={<Category />} />
+          <Route path="/ProductByCat/:category" element={<ProductByCategory />} />
           {/* <Route path="register" element={<Register />} /> */}
           <Route path="register/addclient" element={<ClientForm />} />
           <Route path="/clients/:id" element={<ClientDetails />} />
@@ -74,7 +78,11 @@ function App() {
               <Description/>
               <Footer/>
             </>}/>
+<<<<<<< HEAD
             <Route path="/panier" element={<Panier/>}/>
+=======
+            {/* <Route path="/panier" element={<Panier/>}/> */}
+>>>>>>> b4708908820c182643fcacfdf9662bc47655e427
 
 
         </Routes>
@@ -88,11 +96,5 @@ export default App;
 
 
 
-// import React from 'react'
-// import { Navigate, Outlet } from 'react-router-dom'
-// function ProviderAdmin() {
-//     const auth =  JSON.parse(localStorage.getItem("user"));
-//     return auth.role =="admin" ? <Outlet /> : <Navigate to="/login" />;
-//   }
 
-// export default ProviderAdmin
+
