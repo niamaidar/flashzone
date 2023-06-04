@@ -27,6 +27,7 @@ import Image from "./LandingPage/Image";
 import Footer from "./user/Components/nav/Footer";
 import Description from "./LandingPage/Description";
 import Register2 from "./admin/Register2";
+import Panier from "./user/Panier";
 
 function App() {
   return (
@@ -73,7 +74,7 @@ function App() {
               <Description/>
               <Footer/>
             </>}/>
-
+            <Route path="/panier" element={<Panier/>}/>
 
 
         </Routes>

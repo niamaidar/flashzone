@@ -3,6 +3,8 @@ import Header from "./Header";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPlusCircle } from '@fortawesome/free-solid-svg-icons';
 import "./style.css";
 function ProductList() {
   const [data, setData] = useState([]);
@@ -45,10 +47,16 @@ function ProductList() {
   return (
     <div>
       <Header />
-      <h1 className="text-center">Product list</h1>
+      <h1 className="text-center font-bold" style={{ fontSize: '30px' }}>Product list</h1>
+      <button className="btn btn-secondary">
+      <Link style={{ color: "black", textDecoration: "none" }} to="/add">
+            Add new Product{" "}
+      </Link>
+      </button>
+      <FontAwesomeIcon icon={faPlusCircle} size="2xl" style={{ color: "#171717" }} />
       <div>
-        <Table>
-          <thead>
+        <Table striped bordered hover variant="stone">
+          <thead className="text-center">
             <tr>
               <th>ID</th>
               <th>Name</th>
@@ -61,7 +69,7 @@ function ProductList() {
               <th colSpan={2}>Operations</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody style={{textAlign:"center"}}>
             {data.length > 0 ? (
               data.map((item) => (
                 <tr key={item.id}>
@@ -74,7 +82,7 @@ function ProductList() {
                   <td>{item.category}</td>
                   <td>
                     <img
-                      style={{ width: 100 }}
+                      style={{ width: 100, marginLeft:"25%"}}
                       src={`http://localhost:8000/api/images/${removeProductPrefix(
                         item.file_path
                       )}`}
@@ -107,11 +115,6 @@ function ProductList() {
             )}
           </tbody>
         </Table>
-        <button className="btn btn-info">
-          <Link style={{ color: "white", textDecoration: "none" }} to="/add">
-            Add new Product{" "}
-          </Link>
-        </button>
       </div>
     </div>
   );
