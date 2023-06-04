@@ -27,11 +27,7 @@ import Image from "./LandingPage/Image";
 import Footer from "./user/Components/nav/Footer";
 import Description from "./LandingPage/Description";
 import Register2 from "./admin/Register2";
-<<<<<<< HEAD
 import Panier from "./user/Panier";
-=======
-// import Panier from "./user/Panier";
->>>>>>> b4708908820c182643fcacfdf9662bc47655e427
 
 function App() {
   return (
@@ -59,7 +55,7 @@ function App() {
           <Route path="/command/:id" element={<Command />} />
           <Route path="/command" element={<Command />} />
           <Route path="/carts/:id" element={<Cart />} />
-          <Route path="/product/:id" element={<ProductDetails />} />
+          <Route path="/products/:id" element={<ProductDetails />} />
           <Route path="/Categories" element={<HomeCategory />} />
           {/* <Route path="/command" component={Command} /> */}
           <Route path="/command/:id" element={<Command />} />
@@ -78,11 +74,7 @@ function App() {
               <Description/>
               <Footer/>
             </>}/>
-<<<<<<< HEAD
             <Route path="/panier" element={<Panier/>}/>
-=======
-            {/* <Route path="/panier" element={<Panier/>}/> */}
->>>>>>> b4708908820c182643fcacfdf9662bc47655e427
 
 
         </Routes>
