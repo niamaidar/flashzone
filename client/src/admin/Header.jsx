@@ -1,35 +1,24 @@
 import { Navbar, Nav, NavDropdown } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
-// import {
-//   MDBNavbar,
-//   MDBContainer,
-//   MDBIcon,
-//   MDBNavbarNav,
-//   MDBNavbarItem,
-//   MDBNavbarLink,
-//   MDBBadge,
-//   MDBBtn
-// } from 'mdb-react-ui-kit';
-
+import img from '../images/logo2.png'
 function Header() {
   let user = JSON.parse(localStorage.getItem('user-info'))
   const navigate = useNavigate()
   function logOut()
   {
     localStorage.clear();
-    navigate('/register')
+    navigate('/login')
   }
   return (
     <div>
       <Navbar bg="dark" variant="dark">
-        <Navbar.Brand href="#home">FlashZone</Navbar.Brand>
+        <Navbar.Brand href="#home"><img className="img" src={img} width="70" height="70" alt="Logo" /></Navbar.Brand>
         <Nav className="mr-auto navbar_wrapper">
           {localStorage.getItem('user-info') ? (
             <>
-              <Link to="/list">Products</Link>
-              <Link to="/category">Categories</Link>
-              <Link to="/update">Commande</Link>
-              <Link to="/search">Client </Link>
+              <Link to="/list" style={{textDecoration:"none",color:"orange"}} >Products</Link>
+              <Link to="/Command" style={{textDecoration:"none",color:"orange"}}>Commands</Link>
+              <Link to="/clientlist"style={{textDecoration:"none",color:"orange"}} >Clients </Link>
 
             </>
           ) : (

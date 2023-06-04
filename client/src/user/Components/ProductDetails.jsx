@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 
 // import { useState, useEffect } from 'react';
@@ -8,6 +9,24 @@
 // import Cart from '../Cart';
 
 
+=======
+import { useState, useEffect } from 'react';
+import Rating from './Rating';
+import axios from 'axios';
+import { useParams } from 'react-router-dom';
+import Comments from '../Comments'
+
+const ProductPage = () => {
+    const [product, setProduct] = useState(null);
+    const [error, setError] = useState(null);
+    const {id} = useParams()
+    function removeProductPrefix(imageString) {
+      return imageString.replace("products/", "");
+    }
+    let str = "products/KYDsCfjFfChZxrkX3x20AslI60z5WgdMvdJXY9zE.jpg";
+    console.log(str.trim("products/"));
+    console.warn("results", product);
+>>>>>>> 810c320360f9b1f695357535d3ad6be76b535aaa
 
 // const ProductPage = () => {
 //     const [product, setProduct] = useState(null);
@@ -252,7 +271,19 @@ const ProductDetails = () => {
           <h2>{product.name}</h2>
         </div>
         <div className="card-body">
+<<<<<<< HEAD
           <img className="ProductDetails_image img-fluid" src={`http://localhost:8000/api/images/${product.file_path}`} alt="Product" />
+=======
+          {product && (
+            <img
+              className="ProductDetails_image img-fluid"
+              src={`http://localhost:8000/api/images/${removeProductPrefix(
+                product.file_path
+              )}`}              
+              alt="Product"
+            />
+          )}
+>>>>>>> 810c320360f9b1f695357535d3ad6be76b535aaa
           <div className="ProductDetails_info">
             <p>Price: {product.price}dh</p>
             <p>Description: {product.description}</p>
@@ -262,6 +293,7 @@ const ProductDetails = () => {
           </div>
         </div>
         <hr />
+<<<<<<< HEAD
         <button
           onClick={addToCart}
           className="ProductCard_button p-2 bg-green-600 text-white rounded hover:bg-green-500"
@@ -281,6 +313,20 @@ const ProductDetails = () => {
             <p>No comments available</p>
           )}
         </div>
+=======
+         <Comments/>
+        {/* <div className="card-footer">
+          <h4>Add a Comment</h4>
+          <textarea
+            className="form-control"
+            // value={newComment}
+            // onChange={handleCommentChange}
+          />
+          <button className="btn btn-primary mt-2" onClick={handleAddComment}>
+            Submit
+          </button>
+        </div> */}
+>>>>>>> 810c320360f9b1f695357535d3ad6be76b535aaa
       </div>
       <Cart
         cart={cart}

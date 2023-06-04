@@ -103,7 +103,7 @@ function Register() {
       // }
 
       // localStorage.setItem("user-info", JSON.stringify(result.data));
-      navigate('/login');
+      navigate('/');
     } 
     catch (error) {
       console.log(error);
