@@ -84,7 +84,6 @@ Route::delete('/clients/{id}', [ClientController::class, 'destroy']);
 Route::put('/clients/{id}', [ClientController::class, 'update']);
 Route::get('/clients/{id}', [ClientController::class, 'show']);
 
-Route::post('/carts', [CartController::class, 'store']);
 Route::get('/carts/{id}', [CartController::class, 'show']);
 Route::get('/clients/{id}/carts', [CartController::class, 'getClientCarts']);
 

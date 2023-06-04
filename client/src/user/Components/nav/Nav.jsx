@@ -122,8 +122,8 @@ export default function Nav() {
         </Navbar.Content>
       </Navbar>
     </Layout>: <SearchProduct searchTerm={searchTerm} /> }
-    <Hero />
-    <Footer />
+    {/* <Hero />
+    <Footer /> */}
     </> 
   );
 }

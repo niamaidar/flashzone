@@ -13,5 +13,6 @@ class Reviews extends Model
         'numReviews',
         'comment',
         'produit_id',
+        'client_id',
     ];
 }

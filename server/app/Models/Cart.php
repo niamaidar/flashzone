@@ -16,10 +16,10 @@ class Cart extends Model
 
     protected $table = 'carts';
 
-    public function command()
-    {
-        return $this->belongsTo(Command::class);
-    }
+    // public function command()
+    // {
+    //     return $this->belongsTo(Command::class);
+    // }
 
     public function product()
     {

@@ -24,6 +24,9 @@ import Comments from "./user/Comments";
 import Login2 from "./admin/LoginPage/Login2";
 import Navbar from './LandingPage/Navbar'
 import Image from "./LandingPage/Image";
+import ProviderAdmin from "./components/ProviderAdmin";
+import ProviderUser from "./components/ProviderUser";
+import ProviderRoute from "./components/PrivateRoute";
 
 
 function App() {
@@ -31,22 +34,32 @@ function App() {
     <div>
       <BrowserRouter>
         <Routes>
+      <Route path="/" element={<HomeScreen />} >
+      <Route path="register" element={<Register />} />
+
+        <Route path="/admin" element={<ProviderAdmin />} >
+          <Route path="add" element={<AddProduct />} />
+          <Route path="/list" element={<ProductList />} />
+          <Route path="/update/:id" element={<UpdateProduct />} />
+          <Route path="/search" element={<SearchProduct />} />
+          <Route path="/clientlist" element={<ClientList />} />
+
+        </Route>
+      
+
           <Route path="/login" element={<Login />} />
           <Route path="/" element={<Login2 />} />
           <Route path="/image" element={<Image/>}/>
           {/* //the landing page */}
           <Route path="/user" element={<Userlist />} />
-          <Route path="/Home" element={<HomeScreen />} />
+          {/* <Route path="/Home" element={<HomeScreen />} /> */}
           <Route path="/Nav" element={<Nav/>}/>
-          <Route path="/clientlist" element={<ClientList />} />
+          
           <Route path="login" element={<Login />} />
-          <Route path="add" element={<Protected Cmp={AddProduct} />} />
-          <Route path="/list" element={<Protected Cmp={ProductList} />} />
-          <Route path="/update/:id" element={<Protected Cmp={UpdateProduct} />} />
-          <Route path="/search" element={<Protected Cmp={SearchProduct} />} />
+        
           <Route path="/category" element={Category} />
           <Route path="/ProductByCat/:category" element={<Protected Cmp={ProductByCategory} />} />
-          <Route path="register" element={<Register />} />
+          
           <Route path="register/addclient" element={<ClientForm />} />
           <Route path="/clients/:id" element={<ClientDetails />} />
           <Route path="/command/:id" element={<Command />} />
@@ -57,15 +70,13 @@ function App() {
           {/* <Route path="/command" component={Command} /> */}
           <Route path="/command/:id" element={<Command />} />
           <Route path="/command" element={<Command />} />
-
-          <Route path="/clients/:id" element={<ClientDetails />} />
           <Route path="/carts/:id" element={<Cart />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/Comments" element={<Comments/>}/>
    
           <Route path="/Navbar" element={<Navbar/>}/>
 
-
+      </Route>
 
         </Routes>
 
@@ -77,12 +88,3 @@ function App() {
 export default App;
 
 
-
-// import React from 'react'
-// import { Navigate, Outlet } from 'react-router-dom'
-// function ProviderAdmin() {
-//     const auth =  JSON.parse(localStorage.getItem("user"));
-//     return auth.role =="admin" ? <Outlet /> : <Navigate to="/login" />;
-//   }
-
-// export default ProviderAdmin
