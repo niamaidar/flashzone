@@ -9,23 +9,37 @@ function Login2() {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  
 
-  useEffect(() => {
-    if (localStorage.getItem("user-info")) {
-      navigate("/list");
-    }
-  }, [navigate]);
-
+  
   async function login() {
-    const data = { email, password };
-    try {
-      const response = await axios.post("http://localhost:8000/api/login", data);
-      localStorage.setItem("user-info", JSON.stringify(response.data));
-      navigate('/list');
-    } catch (error) {
-      console.log(error);
+    if (email === "admin@gmail.com") {
+      const data = { email, password };
+      try {
+        const response = await axios.post("http://localhost:8000/api/login", data);
+        localStorage.setItem("user-info", JSON.stringify(response.data));
+        navigate('/list');
+      } catch (error) {
+        console.log(error);
+      }
+    } else {
+      const data = { email, password };
+      try {
+        const response = await axios.post("http://localhost:8000/api/login", data);
+        localStorage.setItem("user-info", JSON.stringify(response.data));
+        navigate('/Nav');
+      } catch (error) {
+        console.log(error);
+      }
     }
   }
+
+  // useEffect(() => {
+  //   if (localStorage.getItem("user-info")) {
+  //     navigate("/list");
+  //   }
+  // }, [navigate]);
+  
 
   return (
     <div className="container-fluid ps-md-0">

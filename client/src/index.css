@@ -12,6 +12,9 @@
 h1, p{
     font-family: lato;
 }
+.hover-effect:hover {
+    color: red;
+  }
 ::-webkit-scrollbar{
     width: 8px;
     height:8px;

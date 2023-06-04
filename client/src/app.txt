@@ -169,3 +169,44 @@ function App() {
 export default App;
 
 
+///////////////
+      <BrowserRouter>
+        <Routes>
+
+           <Route path="/" element={
+            <>
+              <Navbar/>
+              <Image/>
+              <HomeScreen/>
+              <Description/>
+              <Footer/>
+            </>}/>
+.      {/* <Route path="register" element={<Register />} /> */}
+        <Route path="/register" element={<Register2/>}/>
+        <Route path="/admin" element={<ProviderAdmin />} >
+          <Route path="add" element={<AddProduct />} />
+          <Route path="/list" element={<ProductList />} />
+          <Route path="/update/:id" element={<UpdateProduct />} />
+          <Route path="/search" element={<SearchProduct />} />
+          <Route path="/clientlist" element={<ClientList />} />
+      </Route>
+        <Route path="/user" element={<ProviderUser />} >
+           {/* <Route path="/login" element={<Login />} /> */}
+           <Route path="/Nav" element={<Nav/>}/>
+           <Route path="/" element={<Login2 />} />
+           <Route path="register/addclient" element={<ClientForm />} />
+           <Route path="/clients/:id" element={<ClientDetails />} />
+           <Route path="/category" element={<Category />} />
+           <Route path="/ProductByCat/:category" element={<ProductByCategory />} />
+          <Route path="/command" element={<Command />} />
+          <Route path="/carts/:id" element={<Cart />} />
+          <Route path="/products/:id" element={<ProductDetails />} />
+          <Route path="/Categories" element={<HomeCategory />} />
+          <Route path="/command/:id" element={<Command />} />      
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/Comments" element={<Comments/>}/>
+
+        </Route>
+      
+    </Routes>
+  </BrowserRouter>
