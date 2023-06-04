@@ -69,9 +69,8 @@ function Command() {
     const [product, setProduct] = useState(null);
     const navigate = useNavigate();
     const { id } = useParams();
-
-    useEffect(() => {
-        const fetchProduct = async () => {
+    
+const fetchProduct = async () => {
           try {
             const response = await axios.get(`http://localhost:8000/api/products/${id}`);
             setProduct(response.data);
@@ -81,7 +80,8 @@ function Command() {
             // Handle error or show an error message to the user
           }
         };
-    
+    useEffect(() => {
+        
         fetchProduct();
       }, [id]);
 
@@ -132,7 +132,7 @@ const handlePlaceOrder = async () => {
       const response = await axios.post("http://localhost:8000/api/commands", {
         datecommand: new Date(),
         totalPrice: totalPrice,
-        client_id: 1, // Replace with the actual client ID
+        client_id: id, // Replace with the actual client ID
         product_id: id,
       });
 

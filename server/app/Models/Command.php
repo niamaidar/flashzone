@@ -10,20 +10,15 @@ class Command extends Model
     use HasFactory;
     protected $fillable = [
         'datecommand',
-        'totalPrice',
         'client_id',
-        'product_id'
+      
 
     ];
     public function products()
     {
         return $this->belongsToMany(Product::class, 'carts', 'command_id', 'product_id')
+            ->withPivot('quantity')
             ->withTimestamps();
-    }
-
-    public function carts()
-    {
-        return $this->hasMany(Cart::class);
     }
 }
 

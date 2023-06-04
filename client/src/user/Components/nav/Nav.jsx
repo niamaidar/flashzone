@@ -8,6 +8,9 @@ import { SearchIcon } from "./SearchIcon";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import SearchProduct from "./SearchProduct";
+import Footer from "./Footer";
+
+
 
 export default function Nav() {
   const navigate = useNavigate();
@@ -117,6 +120,7 @@ export default function Nav() {
         </Navbar.Content>
       </Navbar>
     </Layout>: <SearchProduct searchTerm={searchTerm} /> }
+    <Footer />
     </> 
   );
 }

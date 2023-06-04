@@ -73,3 +73,14 @@ function App() {
 }
 
 export default App;
+
+
+
+// import React from 'react'
+// import { Navigate, Outlet } from 'react-router-dom'
+// function ProviderAdmin() {
+//     const auth =  JSON.parse(localStorage.getItem("user"));
+//     return auth.role =="admin" ? <Outlet /> : <Navigate to="/login" />;
+//   }
+
+// export default ProviderAdmin
